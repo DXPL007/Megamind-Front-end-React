@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react'
 // import ModalVideo from 'react-modal-video'
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
