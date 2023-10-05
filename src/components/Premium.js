@@ -19,7 +19,7 @@ function Premium() {
 		<>
 
 
-				<Container className='py-5 Bg-Back' fluid>
+				<Container className='mobile-padding Bg-Back' fluid>
 					<Row className="py-5">
    
 						<Col sm={12} md={12} className="text-center">
@@ -27,25 +27,25 @@ function Premium() {
 							<p className="fw-medium"> one stop solution for all your study abroad needs </p>
 						</Col>
 
-						<Col sm={12} md={12} className="pt-5">
+						<Col sm={12} md={12} className="padding-top-5">
 						</Col>
-						<Col sm={12} md={12} className="pt-5">
+						<Col sm={12} md={12} className="padding-top-5">
 						</Col>
-						<Col sm={12} md={12} className="pt-5">
+						<Col sm={12} md={12} className="padding-top-5">
 						</Col>
-						<Col sm={12} md={12} className="pt-5">
+						<Col sm={12} md={12} className="padding-top-5">
 						</Col>
-						<Col sm={12} md={12} className="pt-5">
+						<Col sm={12} md={12} className="padding-top-5">
 						</Col>
-						<Col sm={12} md={12} className="pt-4">
+						<Col sm={12} md={12} className="padding-top-4">
 						</Col>
-						<Col sm={12} md={12} className="pt-4">
+						<Col sm={12} md={12} className="padding-top-4">
 						</Col>
 
 					</Row>
 
-					<Row className="py-5 text-center m-auto" style={{ width: "90%" }}>
-						<Grid className="grid py-5 align-items-stretch grid-system justify-content-center">
+					<Row className="mobile-padding text-center m-auto" style={{ width: "90%" }}>
+						<Grid className="grid mobile-padding align-items-stretch grid-system justify-content-center">
                           
 
 						<Grid item className="mx-2">

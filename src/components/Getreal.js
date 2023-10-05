@@ -15,9 +15,9 @@ function Getreal() {
           
 
                 <Container style={{background: "#f9fafc"}} fluid>
-                    <Row className="py-5" style={{ width:"90%",margin:"auto"}}>
+                    <Row className="mobile-padding" style={{ width:"90%",margin:"auto"}}>
 
-                        <Col sm={12} md={7} className="text-center py-5">
+                        <Col sm={12} md={7} className="text-center mobile-padding">
 
                                 <img src={GetrealImage} className="w-80" alt="logo" />
 
@@ -27,11 +27,11 @@ function Getreal() {
                             <h3 className="font-medium">
                                 Get real guidance from <br/>real student through mentor connect
                             </h3>
-                            <p class="py-5">
+                            <p class="py-4">
                             Talk to students who already have reached your dream 
                             university pursuing your dream course
                             </p>
-                            <a href="./" className="btn btn-pad btn-primary">Say hii! Get a Call From Counselling Expert</a>
+                            <a href="tel:+918882255001" exact className="btn btn-pad btn-primary">Talk to Expert</a>
                         </Col>
                     </Row>
 

@@ -16,107 +16,79 @@ import Row from 'react-bootstrap/Row';
 function ClientView() {
     return (
         <>
-
-
-            
             <Container style={{background: ""}} fluid>
                     <Row className="pb-5 border-bottom" style={{ width:"80%",margin:"auto"}}>
-
                     <Col sm={12} md={12} className="py-5 text-center">
                     <h2 className="h-one text-black" style={{letterSpacing: "-1px"}}> Accreditation & Association</h2>
                      </Col>
                         <div className="slider">
                             <div className="slide-track">
-
                                 <div className="slide">
                                     <img src={Client0} alt="logo" />
                                 </div>
-
                                 <div className="slide">
                                     <img src={Client1} alt="logo" />
                                 </div>
-
                                 <div className="slide">
                                     <img src={Client2} alt="logo" />
                                 </div>
-
                                 <div className="slide">
                                     <img src={Client3} alt="logo" />
                                 </div>
-
                                 <div className="slide">
                                     <img src={Client4} alt="logo" />
                                 </div>
-
                                 <div className="slide">
                                     <img src={Client5} alt="logo" />
                                 </div>
-
                                 <div className="slide">
                                     <img src={Client6} alt="logo" />
                                 </div>
-
-
                                 <div className="slide">
                                     <img src={Client4} alt="logo" />
                                 </div>
-
                                 <div className="slide">
                                     <img src={Client5} alt="logo" />
                                 </div>
-
                                 <div className="slide">
                                     <img src={Client6} alt="logo" />
                                 </div>
                                 <div className="slide">
                                     <img src={Client7} alt="logo" />
                                 </div>
-
                                 <div className="slide">
                                     <img src={Client0} alt="logo" />
                                 </div>
-
                                 <div className="slide">
                                     <img src={Client1} alt="logo" />
                                 </div>
-
                                 <div className="slide">
                                     <img src={Client2} alt="logo" />
                                 </div>
-
                                 <div className="slide">
                                     <img src={Client3} alt="logo" />
                                 </div>
-
                                 <div className="slide">
                                     <img src={Client4} alt="logo" />
                                 </div>
-
                                 <div className="slide">
                                     <img src={Client5} alt="logo" />
                                 </div>
-
                                 <div className="slide">
                                     <img src={Client6} alt="logo" />
                                 </div>
-
-
                                 <div className="slide">
                                     <img src={Client4} alt="logo" />
                                 </div>
-
                                 <div className="slide">
                                     <img src={Client5} alt="logo" />
                                 </div>
-
                                 <div className="slide">
                                     <img src={Client6} alt="logo" />
                                 </div>
                                 <div className="slide">
                                     <img src={Client7} alt="logo" />
                                 </div>
-
-
 
                             </div>
                         </div>

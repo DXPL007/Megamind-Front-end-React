@@ -14,15 +14,14 @@ function Winning() {
 	return (
 
 		<>
-	
 
 			<Container fluid>
-                    <Row className="pb-5 pt-5" style={{ width:"80%",margin:"auto"}}>
-					<Col sm={12} md={12} className="py-5 text-center">
+                    <Row className="pb-5 studyslidt" style={{ width:"80%",margin:"auto"}}>
+					<Col sm={12} md={12} className="pt-3 pb-5 text-center">
 					<h2 className="display-6 text-black"> Our Winning Record </h2>
                     <p>No tall claims, we back the efficiency of our consultancy with stats. Check for yourselves!</p>
 					</Col>
-						<Col sm={12} md={3}>
+						<Col sm={4} md={3}>
 							<ul className="list-style-none">
                             <li className="text-center">  
                               <img src={Winning0} className="w-100 pb-3" alt="logo" />
@@ -32,7 +31,7 @@ function Winning() {
 				
 							</ul>
 						</Col>
-						<Col sm={12} md={3}>
+						<Col sm={4} md={3}>
 							<ul className="list-style-none">
                             <li className="text-center">  
                                      <img src={Winning1} className="w-100 pb-3" alt="logo" />
@@ -43,7 +42,7 @@ function Winning() {
 		
 							</ul>
 						</Col>
-						<Col sm={12} md={3}>
+						<Col sm={4} md={3}>
 							<ul className="list-style-none">
                             <li className="text-center">  
                                  <img src={Winning2} className="w-100 pb-3" alt="logo" />
@@ -55,7 +54,7 @@ function Winning() {
 
 						</Col>
 
-						<Col sm={12} md={3}>
+						<Col sm={4} md={3}>
 							<ul className="list-style-none">
 						     	<li className="text-center">  
                                     <img src={Winning3} className="w-100 pb-3" alt="logo" />
@@ -66,8 +65,8 @@ function Winning() {
 							</ul>
 						</Col>
 
-                        <Col sm={12} md={12} className="text-center py-5">
-                  <a  href="./" className="btn btn-pad btn-primary">Say hii! Get a Call From Counselling Expert</a>
+                        <Col sm={12} md={12} className="text-center mobile-padding">
+                  <a  href="./#enquiry" className="btn btn-pad btn-primary">Say hii! Get a Call From Counselling Expert</a>
                   </Col>
 					</Row>
 

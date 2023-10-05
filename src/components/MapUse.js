@@ -14,7 +14,7 @@ function MapUse() {
 
         <>
       
-                <Container className="py-5" fluid>
+                <Container className="mobile-padding" fluid>
                     <Row className="py-5" style={{ width: "75%", margin: "auto" }}>
                         <Col sm={12} md={12} className="text-center pb-5">
                         <h2 className=""> We connect <strong style={{color:"black"}}>School, Students, </strong> & <br/> <strong style={{color:"black"}}> Recruitment Partneres </strong> from every part of the world</h2>
