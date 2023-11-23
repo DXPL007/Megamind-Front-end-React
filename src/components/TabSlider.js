@@ -7,24 +7,39 @@ import Col from "react-bootstrap/Col";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import "../assets/css/styles.css";
 import Carousel from "react-multi-carousel";
-import PartnerImage from "../images/getreal/partners/partner.png";
-import PartnerImage1 from "../images/getreal/partners/partner1.png";
-import PartnerImage2 from "../images/getreal/partners/partner2.png";
-import PartnerImage3 from "../images/getreal/partners/partner3.png";
-import PartnerImage4 from "../images/getreal/partners/partner4.png";
-
-import FirstImageSlide1 from "../images/getreal/aman.png";
-import FirstImageSlide2 from "../images/getreal/arpan.png";
-import FirstImageSlide3 from "../images/getreal/pankaj.png";
-import FirstImageSlide4 from "../images/getreal/shushank.png";
-import FirstImageSlide5 from "../images/getreal/sonia.png";
-import FirstImageSlide6 from "../images/getreal/tiksha.png";
-import FirstImageSlide7 from "../images/getreal/sagar.png";
-
 import Popup from "reactjs-popup";
 import "reactjs-popup/dist/index.css";
 
+import { useEffect, useState } from "react";
+import axios from 'axios';
+// import $ from 'jquery';
+
+
 const TabSlider = () => {
+
+	 const [student_testimonials, setData1] = useState([]);
+	 const [partner_testimonials, setData2] = useState([]);
+		
+	  useEffect(() => {
+	  axios.get("https://megamindonline.com/admin/webmanager/controller.php?command=GET_HOME_DATA_STUDENT_TESTIMONIALS")
+	  .then((response) => {
+		 setData1(response.data.split(";").filter(r => r !== ''));
+	  })
+	  .catch((error) => {
+		console.log(error);
+	  });
+	
+	  axios.get("https://megamindonline.com/admin/webmanager/controller.php?command=GET_HOME_DATA_PARTNER_TESTIMONIALS")
+	  .then((response) => {
+		 setData2(response.data.split(";").filter(r => r !== ''));
+	  })
+	  .catch((error) => {
+		console.log(error);
+	  });
+	
+	 }, []);
+
+
   const responsive = {
     superLargeDesktop: {
       // the naming can be any, depends on you.
@@ -45,6 +60,9 @@ const TabSlider = () => {
     },
   };
 
+
+
+
   return (
     <>
       <Container fluid className="mobilepadding">
@@ -60,7 +78,7 @@ const TabSlider = () => {
               className="px-5 mobile-rect text-center float-left"
             >
               <h2 className="text-left fw-medium" style={{ fontSize: "42px" }}>
-                {"Students at the heart of everthing we do"}
+                {"Students Journey"}
               </h2>
 
               <TabList className="tabslid text-left p-0 py-3">
@@ -72,10 +90,10 @@ const TabSlider = () => {
                   " Megamind made Process so easy for me, in every step they helped me in understanding"
                 }
               </p>
-              <h2 className="pt-3 fw-medium text-left"> Tilak Gautam </h2>
+              {/* <h2 className="pt-3 fw-medium text-left"> Tilak Gautam </h2>
               <p className="paragraph3 text-left">
                 {"Msc Digital marketing. UWE Bristol"}
-              </p>
+              </p> */}
             </Col>
 
             <Col sm={12} md={7} className="text-center float-left mobile-left">
@@ -105,272 +123,51 @@ const TabSlider = () => {
                   slidesToSlide={1}
                   swipeable
                 >
-                  <div className="card cover2">
-                    {/* <h4>aman </h4> */}
-                    <Popup
-                      trigger={
-                        <img
-                          src={FirstImageSlide1}
-                          alt="img name"
-                          className="w-100"
-                        />
-                      }
-                      modal
-                      nested
-                    >
-                      {(close) => (
-                        <div className="modal">
-                          <div className="text-right pb-2">
-                            <button
-                              onClick={() => close()}
-                              className="btn btn-dark"
-                            >
-                              x
-                            </button>
-                          </div>
-                          <div className="content">
-                            <iframe
-                              width="640"
-                              height="360"
-                              src="https://www.youtube.com/embed/GXHjr14eIMA?rel=0&amp;controls=0&amp;enablejsapi=1&autoplay=1"
-                              title="YouTube video player"
-                              frameborder="0"
-                              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                              allowfullscreen
-                            ></iframe>
-                          </div>
-                        </div>
-                      )}
-                    </Popup>
-                  </div>
-                  <div className="card cover2">
-                    {/* <h4> arpan </h4> */}
-                    <Popup
-                      trigger={
-                        <img
-                          src={FirstImageSlide2}
-                          alt="img name"
-                          className="w-100"
-                        />
-                      }
-                      modal
-                      nested
-                    >
-                      {(close) => (
-                        <div className="modal">
-                          <div className="text-right pb-2">
-                            <button
-                              onClick={() => close()}
-                              className="btn btn-dark"
-                            >
-                              x
-                            </button>
-                          </div>
-                          <div className="content">
-                            <iframe
-                              width="640"
-                              height="360"
-                              src="https://www.youtube.com/embed/zvwbPWfa2WQ?rel=0&amp;controls=0&amp;enablejsapi=1&autoplay=1"
-                              title="YouTube video player"
-                              frameborder="0"
-                              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                              allowfullscreen
-                            ></iframe>
-                          </div>
-                        </div>
-                      )}
-                    </Popup>
-                  </div>
-                  <div className="card cover2">
-                    {/* pankaj */}
-                    <Popup
-                      trigger={
-                        <img
-                          src={FirstImageSlide3}
-                          alt="img name"
-                          className="w-100"
-                        />
-                      }
-                      modal
-                      nested
-                    >
-                      {(close) => (
-                        <div className="modal">
-                          <div className="text-right pb-2">
-                            <button
-                              onClick={() => close()}
-                              className="btn btn-dark"
-                            >
-                              x
-                            </button>
-                          </div>
-                          <div className="content">
-                            <iframe
-                              width="640"
-                              height="360"
-                              src="https://www.youtube.com/embed/6drEHSuM9hI?rel=0&amp;controls=0&amp;enablejsapi=1&autoplay=1"
-                              title="YouTube video player"
-                              frameborder="0"
-                              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                              allowfullscreen
-                            ></iframe>
-                          </div>
-                        </div>
-                      )}
-                    </Popup>
-                  </div>
-                  <div className="card cover2">
-                    {/* shushank */}
-                    <Popup
-                      trigger={
-                        <img
-                          src={FirstImageSlide4}
-                          alt="img name"
-                          className="w-100"
-                        />
-                      }
-                      modal
-                      nested
-                    >
-                      {(close) => (
-                        <div className="modal">
-                          <div className="text-right pb-2">
-                            <button
-                              onClick={() => close()}
-                              className="btn btn-dark"
-                            >
-                              x
-                            </button>
-                          </div>
-                          <div className="content">
-                            <iframe
-                              width="640"
-                              height="360"
-                              src="https://www.youtube.com/embed/AS-QgN5f6SY?rel=0&amp;controls=0&amp;enablejsapi=1&autoplay=1"
-                              title="YouTube video player"
-                              frameborder="0"
-                              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                              allowfullscreen
-                            ></iframe>
-                          </div>
-                        </div>
-                      )}
-                    </Popup>
-                  </div>
-                  <div className="card cover2">
-                    {/* sonia */}
-                    <Popup
-                      trigger={
-                        <img
-                          src={FirstImageSlide5}
-                          alt="img name"
-                          className="w-100"
-                        />
-                      }
-                      modal
-                      nested
-                    >
-                      {(close) => (
-                        <div className="modal">
-                          <div className="text-right pb-2">
-                            <button
-                              onClick={() => close()}
-                              className="btn btn-dark"
-                            >
-                              x
-                            </button>
-                          </div>
-                          <div className="content">
-                            <iframe
-                              width="640"
-                              height="360"
-                              src="https://www.youtube.com/embed/dYSmzC4z6g0?rel=0&amp;controls=0&amp;enablejsapi=1&autoplay=1"
-                              title="YouTube video player"
-                              frameborder="0"
-                              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                              allowfullscreen
-                            ></iframe>
-                          </div>
-                        </div>
-                      )}
-                    </Popup>
-                  </div>
-                  <div className="card cover2">
-                    {/* tiksha */}
-                    <Popup
-                      trigger={
-                        <img
-                          src={FirstImageSlide6}
-                          alt="img name"
-                          className="w-100"
-                        />
-                      }
-                      modal
-                      nested
-                    >
-                      {(close) => (
-                        <div className="modal">
-                          <div className="text-right pb-2">
-                            <button
-                              onClick={() => close()}
-                              className="btn btn-dark"
-                            >
-                              x
-                            </button>
-                          </div>
-                          <div className="content">
-                            <iframe
-                              width="640"
-                              height="360"
-                              src="https://www.youtube.com/embed/zYxZSvhBkRw?rel=0&amp;controls=0&amp;enablejsapi=1&autoplay=1"
-                              title="YouTube video player"
-                              frameborder="0"
-                              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                              allowfullscreen
-                            ></iframe>
-                          </div>
-                        </div>
-                      )}
-                    </Popup>
-                  </div>
-                  <div className="card cover2">
-                    {/* sagar */}
-                    <Popup
-                      trigger={
-                        <img
-                          src={FirstImageSlide7}
-                          alt="img name"
-                          className="w-100"
-                        />
-                      }
-                      modal
-                      nested
-                    >
-                      {(close) => (
-                        <div className="modal">
-                          <div className="text-right pb-2">
-                            <button
-                              onClick={() => close()}
-                              className="btn btn-dark"
-                            >
-                              x
-                            </button>
-                          </div>
-                          <div className="content">
-                            <iframe
-                              width="640"
-                              height="360"
-                              src="https://www.youtube.com/embed/QJmlkbjjWIo?rel=0&amp;controls=0&amp;enablejsapi=1&autoplay=1"
-                              title="YouTube video player"
-                              frameborder="0"
-                              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                              allowfullscreen
-                            ></iframe>
-                          </div>
-                        </div>
-                      )}
-                    </Popup>
-                  </div>
+				
+					  { student_testimonials.map((st) => 
+					  (
+					    <React.Fragment>
+						  <div className="card cover2">
+							{/* <h4>aman </h4> */}
+							<Popup
+							  trigger={
+								<img
+								  src={st.split(",")[1]}
+								  alt="img name"
+								  className="w-100"
+								/>
+							  }
+							  modal
+							  nested
+							>
+							  {(close) => (
+								<div className="modal">
+								  <div className="text-right pb-2">
+									<button
+									  onClick={() => close()}
+									  className="btn btn-dark"
+									>
+									  x
+									</button>
+								  </div>
+								  <div className="content">
+									<iframe
+									  width="640"
+									  height="360"
+									  src={st.split(",")[2]}
+									  title="YouTube video player"
+									  frameborder="0"
+									  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+									  allowfullscreen
+									></iframe>
+								  </div>
+								</div>
+							  )}
+							</Popup>
+						  </div>
+						</React.Fragment>
+					  ))}
+				
                 </Carousel>
               </TabPanel>
               <TabPanel>
@@ -399,192 +196,48 @@ const TabSlider = () => {
                   slidesToSlide={1}
                   swipeable
                 >
-                  <div className="card cover2">
-                    <Popup
-                      trigger={
-                        <img
-                          src={PartnerImage4}
-                          alt="img name"
-                          className="w-100"
-                        />
-                      }
-                      modal
-                      nested
-                    >
-                      {(close) => (
-                        <div className="modal">
-                          <div className="text-right pb-2">
-                            <button
-                              onClick={() => close()}
-                              className="btn btn-dark"
-                            >
-                              x
-                            </button>
-                          </div>
-                          <div className="content">
-                            <iframe
-                              width="640"
-                              height="360"
-                              src="https://www.youtube.com/embed/WVGQysGs3Yo?rel=0&amp;controls=0&amp;enablejsapi=1&autoplay=1"
-                              title="YouTube video player"
-                              frameborder="0"
-                              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                              allowfullscreen
-                            ></iframe>
-                          </div>
-                        </div>
-                      )}
-                    </Popup>
-                  </div>
-                  <div className="card cover2">
-                    <Popup
-                      trigger={
-                        <img
-                          src={PartnerImage2}
-                          alt="img name"
-                          className="w-100"
-                        />
-                      }
-                      modal
-                      nested
-                    >
-                      {(close) => (
-                        <div className="modal">
-                          <div className="text-right pb-2">
-                            <button
-                              onClick={() => close()}
-                              className="btn btn-dark"
-                            >
-                              x
-                            </button>
-                          </div>
-                          <div className="content">
-                            <iframe
-                              width="640"
-                              height="360"
-                              src="https://www.youtube.com/embed/39_uIRjteGY?rel=0&amp;controls=0&amp;enablejsapi=1&autoplay=1"
-                              title="YouTube video player"
-                              frameborder="0"
-                              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                              allowfullscreen
-                            ></iframe>
-                          </div>
-                        </div>
-                      )}
-                    </Popup>
-                  </div>
-                  <div className="card cover2">
-                    <Popup
-                      trigger={
-                        <img
-                          src={PartnerImage1}
-                          alt="img name"
-                          className="w-100"
-                        />
-                      }
-                      modal
-                      nested
-                    >
-                      {(close) => (
-                        <div className="modal">
-                          <div className="text-right pb-2">
-                            <button
-                              onClick={() => close()}
-                              className="btn btn-dark"
-                            >
-                              x
-                            </button>
-                          </div>
-                          <div className="content">
-                            <iframe
-                              width="640"
-                              height="360"
-                              src="https://www.youtube.com/embed/DUrcEsQevdo?rel=0&amp;controls=0&amp;enablejsapi=1&autoplay=1"
-                              title="YouTube video player"
-                              frameborder="0"
-                              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                              allowfullscreen
-                            ></iframe>
-                          </div>
-                        </div>
-                      )}
-                    </Popup>
-                  </div>
-                  <div className="card cover2">
-                    <Popup
-                      trigger={
-                        <img
-                          src={PartnerImage}
-                          alt="img name"
-                          className="w-100"
-                        />
-                      }
-                      modal
-                      nested
-                    >
-                      {(close) => (
-                        <div className="modal">
-                          <div className="text-right pb-2">
-                            <button
-                              onClick={() => close()}
-                              className="btn btn-dark"
-                            >
-                              x
-                            </button>
-                          </div>
-                          <div className="content">
-                            <iframe
-                              width="640"
-                              height="360"
-                              src="https://www.youtube.com/embed/GJmZpTVSUJU?rel=0&amp;controls=0&amp;enablejsapi=1&autoplay=1"
-                              title="YouTube video player"
-                              frameborder="0"
-                              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                              allowfullscreen
-                            ></iframe>
-                          </div>
-                        </div>
-                      )}
-                    </Popup>
-                  </div>
-
-                  <div className="card cover2">
-                    <Popup
-                      trigger={
-                        <img
-                          src={PartnerImage3}
-                          alt="img name"
-                          className="w-100"
-                        />
-                      }
-                      modal
-                      nested
-                    >
-                      {(close) => (
-                        <div className="modal">
-                          <div className="text-right pb-2">
-                            <button
-                              onClick={() => close()}
-                              className="btn btn-dark"
-                            >
-                              x
-                            </button>
-                          </div>
-                          <div className="content">
-                            <iframe
-                              width="640"
-                              height="360"
-                              src="https://www.youtube.com/embed/4uwxbG3HA7c?rel=0&amp;controls=0&amp;enablejsapi=1&autoplay=1"
-                              title="YouTube video player"
-                              frameborder="0"
-                              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                              allowfullscreen
-                            ></iframe>
-                          </div>
-                        </div>
-                      )}
-                    </Popup>
-                  </div>
+					  { partner_testimonials.map((pt) => 
+					  (
+					    <React.Fragment>
+							 <div className="card cover2">
+								<Popup
+								  trigger={
+									<img
+									  src={pt.split(",")[1]}
+									  alt="img name"
+									  className="w-100"
+									/>
+								  }
+								  modal
+								  nested
+								>
+								  {(close) => (
+									<div className="modal">
+									  <div className="text-right pb-2">
+										<button
+										  onClick={() => close()}
+										  className="btn btn-dark"
+										>
+										  x
+										</button>
+									  </div>
+									  <div className="content">
+										<iframe
+										  width="640"
+										  height="360"
+										  src={pt.split(",")[2]}
+										  title="YouTube video player"
+										  frameborder="0"
+										  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+										  allowfullscreen
+										></iframe>
+									  </div>
+									</div>
+								  )}
+								</Popup>
+							  </div>
+						</React.Fragment>
+					  ))}
                 </Carousel>
               </TabPanel>
             </Col>

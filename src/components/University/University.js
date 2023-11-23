@@ -8,72 +8,108 @@ import "react-multi-carousel/lib/styles.css";
 import "./university.css";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { NavLink, Outlet } from "react-router-dom";
-import ProgImage from "../../images/university/programlist.png";
 import UniversityIcon from "../../images/university/icond.png";
-import UniversityImage from "../../images/university/univers.png";
-import AccOmmo from "../../images/university/accour.png";
-import AccOmmo1 from "../../images/university/accour2.png";
-import AccOmmo2 from "../../images/university/accour3.png";
-import AccOmmo3 from "../../images/university/accour4.png";
 
-import LifeImage from "../../images/university/life/1.png";
-import LifeImage1 from "../../images/university/life/2.png";
-import LifeImage2 from "../../images/university/life/3.png";
-import LifeImage3 from "../../images/university/life/4.png";
-import LifeImage4 from "../../images/university/life/5.png";
-import LifeImage5 from "../../images/university/life/6.png";
-import LifeImage6 from "../../images/university/life/7.png";
-import LifeImage7 from "../../images/university/life/8.png";
-import LifeImage8 from "../../images/university/life/9.png";
-import LifeImage9 from "../../images/university/life/10.png";
-import LifeImage10 from "../../images/university/life/11.png";
-import LifeImage11 from "../../images/university/life/12.png";
 
-import CountryA1 from "../../images/country/icon/a1.png";
-import CountryA2 from "../../images/country/icon/a2.png";
-import CountryA3 from "../../images/country/icon/a3.png";
-import CountryA4 from "../../images/country/icon/a4.png";
-import CountryA5 from "../../images/country/icon/a5.png";
-import CountryA6 from "../../images/country/icon/a6.png";
 
-var articles = [
-  {
-    title: "Algonquin ",
-    titlee: "College",
-  },
-];
 
-var [{ title, titlee }] = articles;
 
-const University = () => {
-  const responsive = {
-    superLargeDesktop: {
-      // the naming can be any, depends on you.
-      breakpoint: { max: 4000, min: 3000 },
-      items: 5,
-    },
-    desktop: {
-      breakpoint: { max: 3000, min: 1024 },
-      items: 3,
-    },
-    tablet: {
-      breakpoint: { max: 1024, min: 464 },
-      items: 2,
-    },
-    mobile: {
-      breakpoint: { max: 464, min: 0 },
-      items: 1,
-    },
-  };
 
-  return (
-    <>
-      <Container className="padding-top-4 pb-10 university-bg" fluid>
+//Axios for get request
+import axios from 'axios';
+// import $ from 'jquery';
+
+
+
+
+// function csvToArray (csv) {
+//     var rows = csv.split(";");
+
+//     return rows.map(function (row) {
+//     	return row.split(",");
+//     });
+// };
+
+class University extends React.Component {
+
+      //initialize an object's state in a class
+      constructor(props) {
+      super(props)
+      this.state = {
+        data: []
+              }
+      }
+      //ComponentDidMount is use to Connect a React app to external applications, such as web APIs or JavaScript functions
+      componentDidMount(){
+        
+		const search = window.location.search;
+		const query = new URLSearchParams(search);
+		const code = query.get('code');
+		console.log("code="+code);
+		//let { code } = this.props.params.code;
+		//console.log({code});
+        var geturl = 'https://megamindonline.com/admin/webmanager/controller.php?command=GET_UNIVERSITY_COURSE_DETAILS&country=CANADA&college_university=Algonquin%20College';
+		console.log("geturl="+geturl);
+		//get request
+        axios.get(geturl).then(res => 
+        {
+			this.setState({data: res.data});
+			//this.courses = csvToArray(res.data.all_courses);
+			//var result = res.data.map();
+			//console.log(result);
+            //console.log(JSON.stringify(res.data));
+			//console.log("res.data.all_courses="+res.data.all_courses); 
+            //console.log("res.data.main_banner_image="+res.data.main_banner_image); 
+			
+			
+		}); 
+      }
+   
+	
+	
+	
+     render() 
+	 {
+
+		  const responsive = {
+			superLargeDesktop: {
+			  // the naming can be any, depends on you.
+			  breakpoint: { max: 4000, min: 3000 },
+			  items: 5,
+			},
+			desktop: {
+			  breakpoint: { max: 3000, min: 1024 },
+			  items: 3,
+			},
+			tablet: {
+			  breakpoint: { max: 1024, min: 464 },
+			  items: 2,
+			},
+			mobile: {
+			  breakpoint: { max: 464, min: 0 },
+			  items: 1,
+			},
+		   }
+
+
+	  return (
+			<>
+
+	  {this.state.data.map((result) => {
+				return (
+
+      <Container className="padding-top-4 pb-10" fluid style={{ 
+							  backgroundImage: 'url('+result.main_banner_image+')',
+							  backgroundRepeat: 'no-repeat',
+							  backgroundAttachment: 'scroll',
+							  backgroundSize: '100%',
+							  backgroundPosition:'right center'
+
+				}}>
         <Row className="" style={{ width: "80%", margin: "auto" }}>
-          <Col sm={12} md={5} className="pb-5 pt-5">
+          <Col sm={12} md={4} className="pb-5 pt-5">
             <h2 className="display-4 pb-3">
-              {title} <br />
-              {titlee}
+             {result.college_university}
             </h2>
 
             <Link
@@ -99,21 +135,25 @@ const University = () => {
             </a>
           </Col>
 
-          <Col sm={12} md={7} className="pb-10 countriDisplay">
+          <Col sm={12} md={8} className="pb-10 countriDisplay">
             {/* <img className="w-100" src={TryImage} alt="Flag" /> */}
           </Col>
         </Row>
       </Container>
+		)
+	  })}
 
+	{this.state.data.map((result) => {
+	   return (
       <Container className="pt-5 pb-5 margin-top-2" fluid>
         <Row className="" style={{ width: "90%", margin: "auto" }}>
           <Col sm={12} md={12} className="pb-4 text-center">
-            <h2 className="display-6"> Algonquin College </h2>
+            <h2 className="display-6">{result.college_university}</h2>
           </Col>
         </Row>
         <Row className="hero-bg" style={{ width: "85%", margin: "auto" }}>
           <Col sm={12} md={6} className="univers-inner">
-            <img src={UniversityImage} alt="imageuiversity" width={"100%"} />
+            <img src={result.small_banner_image} alt="imageuiversity" width={"100%"} />
           </Col>
           <Col sm={12} md={6} className="university-sec">
             <div className="Study-wa">
@@ -127,7 +167,7 @@ const University = () => {
                     width={"20px"}
                   />
                   {
-                    "Diverse areas of studies that answer to the needs of today’s employment market.Cost Effective Quality Education "
+                    result.college_university_feature_1
                   }
                 </li>
                 <li className="d-flex align-items-start">
@@ -139,7 +179,7 @@ const University = () => {
                   />
 
                   {
-                    "Diverse areas of studies that answer to the needs of today’s employment market."
+                    result.college_university_feature_2
                   }
                 </li>
                 <li className="d-flex align-items-start">
@@ -151,7 +191,7 @@ const University = () => {
                   />
 
                   {
-                    "A student-centered approach that promotes success through hands-on, experiential teaching."
+                    result.college_university_feature_3
                   }
                 </li>
                 <li className="d-flex align-items-start">
@@ -163,7 +203,7 @@ const University = () => {
                   />
 
                   {
-                    " 200 bachelor degrees, postgraduate, diploma and certificate programs."
+                    result.college_university_feature_4
                   }
                 </li>
                 <li className="d-flex align-items-start">
@@ -174,7 +214,7 @@ const University = () => {
                     width={"20px"}
                   />
                   {
-                    " Modern facilities and strategic partnerships that ensure students have access to the quality education."
+                    result.college_university_feature_5
                   }
                 </li>
               </ul>
@@ -182,6 +222,8 @@ const University = () => {
           </Col>
         </Row>
       </Container>
+		)
+	  })}
 
       <Container className="padding-5" fluid>
         <Row className="" style={{ width: "90%", margin: "auto" }}>
@@ -191,16 +233,19 @@ const University = () => {
 
           {/* Fist Courses Start Here*/}
 
+	  {this.state.data.map((result) => {
+				return (
+
           <Col sm={12} md={4} className="mb-4">
             <div className="subcours">
               <div className="subcourses-pro col-sm-12 p-0">
                 <img
-                  src="https://images.leverageedu.com/university/courses.png"
+                  src= {result.all_courses.course_1_logo}
                   alt="leverage"
                 />
                 <div style={{ marginLeft: "16px" }}>
                   <span className="subcourses_h-title__zuIFF">
-                    Graduate Certificate in Adult Care Nurse Practitioner
+				  {result.all_courses.course_1_title}
                   </span>
                   <span class="subcourses_subHeading__eJmcM"></span>
                 </div>
@@ -209,37 +254,37 @@ const University = () => {
               <Row className="align-items-center">
                 <Col sm={4} md={4} className="clearfix">
                   <div className="subcourses_details__6Pow6">
-                    <h3 className="Subcourses-Desc">CAD 14,181/year</h3>
+                    <h3 className="Subcourses-Desc">{result.all_courses.course_1_fee}</h3>
                     <p className="subcoursesc-title">Fee</p>
                   </div>
                 </Col>
                 <Col sm={4} md={4}>
                   <div className="subcourses_details__6Pow6">
-                    <h3 className="Subcourses-Desc">24 Months</h3>
+                    <h3 className="Subcourses-Desc">{result.all_courses.course_1_duration}</h3>
                     <p className="subcoursesc-title">Duration</p>
                   </div>
                 </Col>
                 <Col sm={4} md={4}>
                   <div className="subcourses_details__6Pow6">
-                    <h3 className="Subcourses-Desc">IELTS: 6.5</h3>
+                    <h3 className="Subcourses-Desc">{result.all_courses.course_1_qualifications_required}</h3>
                     <p className="subcoursesc-title">Qualification</p>
                   </div>
                 </Col>
                 <Col sm={4} md={4} className="mt-2">
                   <div className="subcourses_details__6Pow6">
-                    <h3 className="Subcourses-Desc">Bachelors</h3>
+                    <h3 className="Subcourses-Desc">{result.all_courses.course_1_level}</h3>
                     <p className="subcoursesc-title">Course level</p>
                   </div>
                 </Col>
                 <Col sm={4} md={4} className="mt-2">
                   <div className="subcourses_details__6Pow6">
-                    <h3 className="Subcourses-Desc">On Campus </h3>
+                    <h3 className="Subcourses-Desc">{result.all_courses.course_1_type_of_course}</h3>
                     <p className="subcoursesc-title">Mode of Degree</p>
                   </div>
                 </Col>
                 <Col sm={4} md={4} className="mt-2">
                   <div className="subcourses_details__6Pow6">
-                    <h3 className="Subcourses-Desc"> Jan, May, Sep</h3>
+                    <h3 className="Subcourses-Desc">{result.all_courses.course_1_intake_months}</h3>
                     <p className="subcoursesc-title">Intakes</p>
                   </div>
                 </Col>
@@ -247,9 +292,7 @@ const University = () => {
                   <div className="subcour-bottom"></div>
                   <p className="Subcourses-Bottom">
                     <div className="maxHeight_2">
-                      This course by Mcgill University will take you through all
-                      the core insights of the field. Along with theoretical
-                      concepts, you...
+					  {result.all_courses.course_1_big_description}
                     </div>
                     <Link className="text-primary cursor-pointer undefined">
                       Read More
@@ -269,21 +312,26 @@ const University = () => {
               </button>
             </div>
           </Col>
+			)
+		  })}
 
           {/* Fist Courses End Here*/}
 
           {/* Second Courses Start Here*/}
 
+	 	 {this.state.data.map((result) => {
+				return (
+
           <Col sm={12} md={4} className="mb-4">
             <div className="subcours">
               <div className="subcourses-pro col-sm-12 p-0">
                 <img
-                  src="https://images.leverageedu.com/university/courses.png"
+                  src= {result.all_courses.course_2_logo}
                   alt="leverage"
                 />
                 <div style={{ marginLeft: "16px" }}>
                   <span className="subcourses_h-title__zuIFF">
-                    Graduate Certificate in Adult Care Nurse Practitioner
+                    {result.all_courses.course_2_title}
                   </span>
                   <span class="subcourses_subHeading__eJmcM"></span>
                 </div>
@@ -292,37 +340,37 @@ const University = () => {
               <Row className="align-items-center">
                 <Col sm={4} md={4} className="clearfix">
                   <div className="subcourses_details__6Pow6">
-                    <h3 className="Subcourses-Desc">CAD 14,181/year</h3>
+                    <h3 className="Subcourses-Desc">{result.all_courses.course_2_fee}</h3>
                     <p className="subcoursesc-title">Fee</p>
                   </div>
                 </Col>
                 <Col sm={4} md={4}>
                   <div className="subcourses_details__6Pow6">
-                    <h3 className="Subcourses-Desc">24 Months</h3>
+                    <h3 className="Subcourses-Desc">{result.all_courses.course_2_duration}</h3>
                     <p className="subcoursesc-title">Duration</p>
                   </div>
                 </Col>
                 <Col sm={4} md={4}>
                   <div className="subcourses_details__6Pow6">
-                    <h3 className="Subcourses-Desc">IELTS: 6.5</h3>
+                    <h3 className="Subcourses-Desc">{result.all_courses.course_2_qualifications_required}</h3>
                     <p className="subcoursesc-title">Qualification</p>
                   </div>
                 </Col>
                 <Col sm={4} md={4} className="mt-2">
                   <div className="subcourses_details__6Pow6">
-                    <h3 className="Subcourses-Desc">Bachelors</h3>
+                    <h3 className="Subcourses-Desc">{result.all_courses.course_2_level}</h3>
                     <p className="subcoursesc-title">Course level</p>
                   </div>
                 </Col>
                 <Col sm={4} md={4} className="mt-2">
                   <div className="subcourses_details__6Pow6">
-                    <h3 className="Subcourses-Desc">On Campus </h3>
+                    <h3 className="Subcourses-Desc">{result.all_courses.course_2_type_of_course}</h3>
                     <p className="subcoursesc-title">Mode of Degree</p>
                   </div>
                 </Col>
                 <Col sm={4} md={4} className="mt-2">
                   <div className="subcourses_details__6Pow6">
-                    <h3 className="Subcourses-Desc"> Jan, May, Sep</h3>
+                    <h3 className="Subcourses-Desc"> {result.all_courses.course_2_intake_months}</h3>
                     <p className="subcoursesc-title">Intakes</p>
                   </div>
                 </Col>
@@ -330,9 +378,7 @@ const University = () => {
                   <div className="subcour-bottom"></div>
                   <p className="Subcourses-Bottom">
                     <div className="maxHeight_2">
-                      This course by Mcgill University will take you through all
-                      the core insights of the field. Along with theoretical
-                      concepts, you...
+						{result.all_courses.course_2_big_description}
                     </div>
                     <Link className="text-primary cursor-pointer undefined">
                       Read More
@@ -352,21 +398,26 @@ const University = () => {
               </button>
             </div>
           </Col>
+			)
+		  })}
 
           {/* Second Courses End Here*/}
 
           {/* Third Courses Start Here*/}
+	 	
+		{this.state.data.map((result) => {
+				return (
 
           <Col sm={12} md={4} className="mb-4">
             <div className="subcours">
               <div className="subcourses-pro col-sm-12 p-0">
                 <img
-                  src="https://images.leverageedu.com/university/courses.png"
+                  src={result.all_courses.course_3_logo}
                   alt="leverage"
                 />
                 <div style={{ marginLeft: "16px" }}>
                   <span className="subcourses_h-title__zuIFF">
-                    Graduate Certificate in Adult Care Nurse Practitioner
+                    {result.all_courses.course_3_title}
                   </span>
                   <span class="subcourses_subHeading__eJmcM"></span>
                 </div>
@@ -375,37 +426,37 @@ const University = () => {
               <Row className="align-items-center">
                 <Col sm={4} md={4} className="clearfix">
                   <div className="subcourses_details__6Pow6">
-                    <h3 className="Subcourses-Desc">CAD 14,181/year</h3>
+                    <h3 className="Subcourses-Desc">{result.all_courses.course_3_fee}</h3>
                     <p className="subcoursesc-title">Fee</p>
                   </div>
                 </Col>
                 <Col sm={4} md={4}>
                   <div className="subcourses_details__6Pow6">
-                    <h3 className="Subcourses-Desc">24 Months</h3>
+                    <h3 className="Subcourses-Desc">{result.all_courses.course_3_duration}</h3>
                     <p className="subcoursesc-title">Duration</p>
                   </div>
                 </Col>
                 <Col sm={4} md={4}>
                   <div className="subcourses_details__6Pow6">
-                    <h3 className="Subcourses-Desc">IELTS: 6.5</h3>
+                    <h3 className="Subcourses-Desc">{result.all_courses.course_3_qualifications_required}</h3>
                     <p className="subcoursesc-title">Qualification</p>
                   </div>
                 </Col>
                 <Col sm={4} md={4} className="mt-2">
                   <div className="subcourses_details__6Pow6">
-                    <h3 className="Subcourses-Desc">Bachelors</h3>
+                    <h3 className="Subcourses-Desc">{result.all_courses.course_3_level}</h3>
                     <p className="subcoursesc-title">Course level</p>
                   </div>
                 </Col>
                 <Col sm={4} md={4} className="mt-2">
                   <div className="subcourses_details__6Pow6">
-                    <h3 className="Subcourses-Desc">On Campus </h3>
+                    <h3 className="Subcourses-Desc">{result.all_courses.course_3_type_of_course}</h3>
                     <p className="subcoursesc-title">Mode of Degree</p>
                   </div>
                 </Col>
                 <Col sm={4} md={4} className="mt-2">
                   <div className="subcourses_details__6Pow6">
-                    <h3 className="Subcourses-Desc"> Jan, May, Sep</h3>
+                    <h3 className="Subcourses-Desc">{result.all_courses.course_3_intake_months}</h3>
                     <p className="subcoursesc-title">Intakes</p>
                   </div>
                 </Col>
@@ -413,9 +464,7 @@ const University = () => {
                   <div className="subcour-bottom"></div>
                   <p className="Subcourses-Bottom">
                     <div className="maxHeight_2">
-                      This course by Mcgill University will take you through all
-                      the core insights of the field. Along with theoretical
-                      concepts, you...
+					  {result.all_courses.course_3_big_description}
                     </div>
                     <Link className="text-primary cursor-pointer undefined">
                       Read More
@@ -435,20 +484,26 @@ const University = () => {
               </button>
             </div>
           </Col>
+			)
+		  })}
 
           {/* Third Courses End Here*/}
 
           {/* Fourth Courses Start Here*/}
+
+		{this.state.data.map((result) => {
+				return (
+
           <Col sm={12} md={4} className="mb-4">
             <div className="subcours">
               <div className="subcourses-pro col-sm-12 p-0">
                 <img
-                  src="https://images.leverageedu.com/university/courses.png"
+                  src={result.all_courses.course_4_logo}
                   alt="leverage"
                 />
                 <div style={{ marginLeft: "16px" }}>
                   <span className="subcourses_h-title__zuIFF">
-                    Graduate Certificate in Adult Care Nurse Practitioner
+                    {result.all_courses.course_4_title}
                   </span>
                   <span class="subcourses_subHeading__eJmcM"></span>
                 </div>
@@ -457,37 +512,37 @@ const University = () => {
               <Row className="align-items-center">
                 <Col sm={4} md={4} className="clearfix">
                   <div className="subcourses_details__6Pow6">
-                    <h3 className="Subcourses-Desc">CAD 14,181/year</h3>
+                    <h3 className="Subcourses-Desc">{result.all_courses.course_4_fee}</h3>
                     <p className="subcoursesc-title">Fee</p>
                   </div>
                 </Col>
                 <Col sm={4} md={4}>
                   <div className="subcourses_details__6Pow6">
-                    <h3 className="Subcourses-Desc">24 Months</h3>
+                    <h3 className="Subcourses-Desc">{result.all_courses.course_4_duration}</h3>
                     <p className="subcoursesc-title">Duration</p>
                   </div>
                 </Col>
                 <Col sm={4} md={4}>
                   <div className="subcourses_details__6Pow6">
-                    <h3 className="Subcourses-Desc">IELTS: 6.5</h3>
+                    <h3 className="Subcourses-Desc">{result.all_courses.course_4_qualifications_required}</h3>
                     <p className="subcoursesc-title">Qualification</p>
                   </div>
                 </Col>
                 <Col sm={4} md={4} className="mt-2">
                   <div className="subcourses_details__6Pow6">
-                    <h3 className="Subcourses-Desc">Bachelors</h3>
+                    <h3 className="Subcourses-Desc">{result.all_courses.course_4_level}</h3>
                     <p className="subcoursesc-title">Course level</p>
                   </div>
                 </Col>
                 <Col sm={4} md={4} className="mt-2">
                   <div className="subcourses_details__6Pow6">
-                    <h3 className="Subcourses-Desc">On Campus </h3>
+                    <h3 className="Subcourses-Desc">{result.all_courses.course_4_type_of_course}</h3>
                     <p className="subcoursesc-title">Mode of Degree</p>
                   </div>
                 </Col>
                 <Col sm={4} md={4} className="mt-2">
                   <div className="subcourses_details__6Pow6">
-                    <h3 className="Subcourses-Desc"> Jan, May, Sep</h3>
+                    <h3 className="Subcourses-Desc">{result.all_courses.course_4_intake_months}</h3>
                     <p className="subcoursesc-title">Intakes</p>
                   </div>
                 </Col>
@@ -495,9 +550,7 @@ const University = () => {
                   <div className="subcour-bottom"></div>
                   <p className="Subcourses-Bottom">
                     <div className="maxHeight_2">
-                      This course by Mcgill University will take you through all
-                      the core insights of the field. Along with theoretical
-                      concepts, you...
+                    {result.all_courses.course_4_big_description}
                     </div>
                     <Link className="text-primary cursor-pointer undefined">
                       Read More
@@ -517,19 +570,26 @@ const University = () => {
               </button>
             </div>
           </Col>
+			)
+		  })}
+
           {/* Fourth Courses End Here*/}
 
           {/* Five Courses Start Here*/}
-          <Col sm={12} md={4} className="mb-4">
+
+  		{this.state.data.map((result) => {
+				return (
+ 
+			<Col sm={12} md={4} className="mb-4">
             <div className="subcours">
               <div className="subcourses-pro col-sm-12 p-0">
                 <img
-                  src="https://images.leverageedu.com/university/courses.png"
+                  src= {result.all_courses.course_5_logo}
                   alt="leverage"
                 />
                 <div style={{ marginLeft: "16px" }}>
                   <span className="subcourses_h-title__zuIFF">
-                    Graduate Certificate in Adult Care Nurse Practitioner
+                    {result.all_courses.course_5_title}
                   </span>
                   <span class="subcourses_subHeading__eJmcM"></span>
                 </div>
@@ -538,37 +598,37 @@ const University = () => {
               <Row className="align-items-center">
                 <Col sm={4} md={4} className="clearfix">
                   <div className="subcourses_details__6Pow6">
-                    <h3 className="Subcourses-Desc">CAD 14,181/year</h3>
+                    <h3 className="Subcourses-Desc">{result.all_courses.course_5_fee}</h3>
                     <p className="subcoursesc-title">Fee</p>
                   </div>
                 </Col>
                 <Col sm={4} md={4}>
                   <div className="subcourses_details__6Pow6">
-                    <h3 className="Subcourses-Desc">24 Months</h3>
+                    <h3 className="Subcourses-Desc">{result.all_courses.course_5_duration}</h3>
                     <p className="subcoursesc-title">Duration</p>
                   </div>
                 </Col>
                 <Col sm={4} md={4}>
                   <div className="subcourses_details__6Pow6">
-                    <h3 className="Subcourses-Desc">IELTS: 6.5</h3>
+                    <h3 className="Subcourses-Desc">{result.all_courses.course_5_qualifications_required}</h3>
                     <p className="subcoursesc-title">Qualification</p>
                   </div>
                 </Col>
                 <Col sm={4} md={4} className="mt-2">
                   <div className="subcourses_details__6Pow6">
-                    <h3 className="Subcourses-Desc">Bachelors</h3>
+                    <h3 className="Subcourses-Desc">{result.all_courses.course_5_level}</h3>
                     <p className="subcoursesc-title">Course level</p>
                   </div>
                 </Col>
                 <Col sm={4} md={4} className="mt-2">
                   <div className="subcourses_details__6Pow6">
-                    <h3 className="Subcourses-Desc">On Campus </h3>
+                    <h3 className="Subcourses-Desc">{result.all_courses.course_5_type_of_course}</h3>
                     <p className="subcoursesc-title">Mode of Degree</p>
                   </div>
                 </Col>
                 <Col sm={4} md={4} className="mt-2">
                   <div className="subcourses_details__6Pow6">
-                    <h3 className="Subcourses-Desc"> Jan, May, Sep</h3>
+                    <h3 className="Subcourses-Desc">{result.all_courses.course_5_intake_months}</h3>
                     <p className="subcoursesc-title">Intakes</p>
                   </div>
                 </Col>
@@ -576,9 +636,7 @@ const University = () => {
                   <div className="subcour-bottom"></div>
                   <p className="Subcourses-Bottom">
                     <div className="maxHeight_2">
-                      This course by Mcgill University will take you through all
-                      the core insights of the field. Along with theoretical
-                      concepts, you...
+					{result.all_courses.course_5_big_description}
                     </div>
                     <Link className="text-primary cursor-pointer undefined">
                       Read More
@@ -598,19 +656,26 @@ const University = () => {
               </button>
             </div>
           </Col>
-          {/* Five Courses End Here*/}
+  			)
+		  })}
+
+		{/* Five Courses End Here*/}
 
           {/* Six Courses Start Here*/}
-          <Col sm={12} md={4} className="mb-4">
+
+    		{this.state.data.map((result) => {
+				return (
+
+			<Col sm={12} md={4} className="mb-4">
             <div className="subcours">
               <div className="subcourses-pro col-sm-12 p-0">
                 <img
-                  src="https://images.leverageedu.com/university/courses.png"
+                  src={result.all_courses.course_6_logo}
                   alt="leverage"
                 />
                 <div style={{ marginLeft: "16px" }}>
                   <span className="subcourses_h-title__zuIFF">
-                    Graduate Certificate in Adult Care Nurse Practitioner
+                    {result.all_courses.course_6_logo} 
                   </span>
                   <span class="subcourses_subHeading__eJmcM"></span>
                 </div>
@@ -619,37 +684,37 @@ const University = () => {
               <Row className="align-items-center">
                 <Col sm={4} md={4} className="clearfix">
                   <div className="subcourses_details__6Pow6">
-                    <h3 className="Subcourses-Desc">CAD 14,181/year</h3>
+                    <h3 className="Subcourses-Desc">{result.all_courses.course_6_fee}</h3>
                     <p className="subcoursesc-title">Fee</p>
                   </div>
                 </Col>
                 <Col sm={4} md={4}>
                   <div className="subcourses_details__6Pow6">
-                    <h3 className="Subcourses-Desc">24 Months</h3>
+                    <h3 className="Subcourses-Desc">{result.all_courses.course_6_duration}</h3>
                     <p className="subcoursesc-title">Duration</p>
                   </div>
                 </Col>
                 <Col sm={4} md={4}>
                   <div className="subcourses_details__6Pow6">
-                    <h3 className="Subcourses-Desc">IELTS: 6.5</h3>
+                    <h3 className="Subcourses-Desc">{result.all_courses.course_6_qualifications_required}</h3>
                     <p className="subcoursesc-title">Qualification</p>
                   </div>
                 </Col>
                 <Col sm={4} md={4} className="mt-2">
                   <div className="subcourses_details__6Pow6">
-                    <h3 className="Subcourses-Desc">Bachelors</h3>
+                    <h3 className="Subcourses-Desc">{result.all_courses.course_6_level}</h3>
                     <p className="subcoursesc-title">Course level</p>
                   </div>
                 </Col>
                 <Col sm={4} md={4} className="mt-2">
                   <div className="subcourses_details__6Pow6">
-                    <h3 className="Subcourses-Desc">On Campus </h3>
+                    <h3 className="Subcourses-Desc">{result.all_courses.course_6_type_of_course}</h3>
                     <p className="subcoursesc-title">Mode of Degree</p>
                   </div>
                 </Col>
                 <Col sm={4} md={4} className="mt-2">
                   <div className="subcourses_details__6Pow6">
-                    <h3 className="Subcourses-Desc"> Jan, May, Sep</h3>
+                    <h3 className="Subcourses-Desc">{result.all_courses.course_6_intake_months}</h3>
                     <p className="subcoursesc-title">Intakes</p>
                   </div>
                 </Col>
@@ -657,9 +722,7 @@ const University = () => {
                   <div className="subcour-bottom"></div>
                   <p className="Subcourses-Bottom">
                     <div className="maxHeight_2">
-                      This course by Mcgill University will take you through all
-                      the core insights of the field. Along with theoretical
-                      concepts, you...
+					  {result.all_courses.course_6_big_description}
                     </div>
                     <Link className="text-primary cursor-pointer undefined">
                       Read More
@@ -679,11 +742,16 @@ const University = () => {
               </button>
             </div>
           </Col>
-          {/* Six Courses End Here*/}
-        </Row>
+   			)
+		  })}
+
+		{/* Six Courses End Here*/}
+
+		</Row>
       </Container>
 
-
+ 	{/* {this.state.data.map((result) => {
+	   return (
       <Container fluid>
         <Row className="" style={{ width: "85%", margin: "auto" }}>
           <Col sm={12} md={12} className="pb-4 text-center">
@@ -692,7 +760,7 @@ const University = () => {
 
           <Col sm={12} md={12} className="">
             <div className="University-Icon">
-              <img className="" src={ProgImage} alt="Flag" width={"100%"} />
+              <img className="" src={result.program_list_document_url1} alt="Flag" width={"100%"} />
             </div>
           </Col>
           <Col sm={12} md={12} className="text-center">
@@ -708,31 +776,37 @@ const University = () => {
           </Col>
         </Row>
       </Container>
+		)
+	  })} */}
 
-      
+ 	{this.state.data.map((result) => {
+	   return (
       <Container className="mobile-padding" fluid>
         <Row className="" style={{ width: "85%", margin: "auto" }}>
 
             <hr />
             <div class="gal">
-            <img className="" src={LifeImage} alt="Flag" width={"100%"} />
-            <img className="" src={LifeImage1} alt="Flag" width={"100%"} />
-            <img className="" src={LifeImage2} alt="Flag" width={"100%"} />
-            <img className="" src={LifeImage3} alt="Flag" width={"100%"} />
-            <img className="" src={LifeImage4} alt="Flag" width={"100%"} />
-            <img className="" src={LifeImage5} alt="Flag" width={"100%"} />
-            <img className="" src={LifeImage6} alt="Flag" width={"100%"} />
-            <img className="" src={LifeImage7} alt="Flag" width={"100%"} />
-            <img className="" src={LifeImage8} alt="Flag" width={"100%"} />
-            <img className="" src={LifeImage9} alt="Flag" width={"100%"} />
-            <img className="" src={LifeImage10} alt="Flag" width={"100%"} />
-            <img className="" src={LifeImage11} alt="Flag" width={"100%"} />
-
+            <img className="" src={result.image_gallery_1} alt="Flag" width={"100%"} />
+            <img className="" src={result.image_gallery_2} alt="Flag" width={"100%"} />
+            <img className="" src={result.image_gallery_3} alt="Flag" width={"100%"} />
+            <img className="" src={result.image_gallery_4} alt="Flag" width={"100%"} />
+            <img className="" src={result.image_gallery_5} alt="Flag" width={"100%"} />
+            <img className="" src={result.image_gallery_6} alt="Flag" width={"100%"} />
+            <img className="" src={result.image_gallery_7} alt="Flag" width={"100%"} />
+            <img className="" src={result.image_gallery_8} alt="Flag" width={"100%"} />
+            <img className="" src={result.image_gallery_9} alt="Flag" width={"100%"} />
+            <img className="" src={result.image_gallery_10} alt="Flag" width={"100%"} />
+            <img className="" src={result.image_gallery_11} alt="Flag" width={"100%"} />
+            <img className="" src={result.image_gallery_12} alt="Flag" width={"100%"} />
             </div>
-
           </Row>
       </Container>
+		)
+	  })}
 
+
+ 	{this.state.data.map((result) => {
+	   return (
 
       <Container className="mt-5" fluid>
         <Row className="" style={{ width: "85%", margin: "auto" }}>
@@ -775,13 +849,13 @@ const University = () => {
                   <iframe
                     width={"100%"}
                     height="250px"
-                    src="https://www.youtube.com/embed/H0Ry6QBvjiI?si=3S-SRquOGM_PKSJQ"
+                    src={result.video_gallery_url_1}
                     title="YouTube video player"
                     frameborder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                     allowfullscreen
                   ></iframe>
-                  <h5 className="Box-Title">Study in Canada</h5>
+                  <h5 className="Box-Title">{result.video_gallery_title_1}</h5>
                 </NavLink>
               </div>
 
@@ -790,29 +864,13 @@ const University = () => {
                   <iframe
                     width={"100%"}
                     height="250px"
-                    src="https://www.youtube.com/embed/H0Ry6QBvjiI?si=3S-SRquOGM_PKSJQ"
+                    src={result.video_gallery_url_2}
                     title="YouTube video player"
                     frameborder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                     allowfullscreen
                   ></iframe>
-                  <h5 className="Box-Title">Study in Germany</h5>
-                </NavLink>
-                <Outlet />
-              </div>
-
-              <div className="card-boxer">
-                <NavLink to="./country" exact target="_blank">
-                  <iframe
-                    width={"100%"}
-                    height="250px"
-                    src="https://www.youtube.com/embed/H0Ry6QBvjiI?si=3S-SRquOGM_PKSJQ"
-                    title="YouTube video player"
-                    frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    allowfullscreen
-                  ></iframe>
-                  <h5 className="Box-Title">Study in Australia</h5>
+                  <h5 className="Box-Title">{result.video_gallery_title_2}</h5>
                 </NavLink>
                 <Outlet />
               </div>
@@ -822,13 +880,29 @@ const University = () => {
                   <iframe
                     width={"100%"}
                     height="250px"
-                    src="https://www.youtube.com/embed/H0Ry6QBvjiI?si=3S-SRquOGM_PKSJQ"
+                    src={result.video_gallery_url_3}
                     title="YouTube video player"
                     frameborder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                     allowfullscreen
                   ></iframe>
-                  <h5 className="Box-Title">Study in U.K.</h5>
+                  <h5 className="Box-Title">{result.video_gallery_title_3}</h5>
+                </NavLink>
+                <Outlet />
+              </div>
+
+              <div className="card-boxer">
+                <NavLink to="./country" exact target="_blank">
+                  <iframe
+                    width={"100%"}
+                    height="250px"
+                    src={result.video_gallery_url_4}
+                    title="YouTube video player"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen
+                  ></iframe>
+                  <h5 className="Box-Title">{result.video_gallery_title_4}</h5>
                 </NavLink>
               </div>
 
@@ -837,13 +911,13 @@ const University = () => {
                   <iframe
                     width={"100%"}
                     height="250px"
-                    src="https://www.youtube.com/embed/H0Ry6QBvjiI?si=3S-SRquOGM_PKSJQ"
+                    src={result.video_gallery_url_5}
                     title="YouTube video player"
                     frameborder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                     allowfullscreen
                   ></iframe>
-                  <h5 className="Box-Title">Study in New Zealand</h5>
+                  <h5 className="Box-Title">{result.video_gallery_title_5}</h5>
                 </NavLink>
               </div>
 
@@ -852,19 +926,24 @@ const University = () => {
                   <iframe
                     width={"100%"}
                     height="250px"
-                    src="https://www.youtube.com/embed/H0Ry6QBvjiI?si=3S-SRquOGM_PKSJQ"
+                    src={result.video_gallery_url_6}
                     title="YouTube video player"
                     frameborder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                     allowfullscreen
                   ></iframe>
-                  <h5 className="Box-Title">Study in Ireland</h5>
+                  <h5 className="Box-Title">{result.video_gallery_title_6}</h5>
                 </NavLink>
               </div>
             </Carousel>
           </Col>
         </Row>
       </Container>
+		)
+	  })}
+
+ 	{this.state.data.map((result) => {
+	   return (
 
       <Container className="pt-5" fluid>
         <Row className="" style={{ width: "85%", margin: "auto" }}>
@@ -874,86 +953,86 @@ const University = () => {
 
           <Col sm={4} md={4} className="padding-b-5">
             <div className="Countrty-Icon">
-              <img className="w-0" src={CountryA1} alt="Flag" />
+              <img className="w-0" src={result.accommodations_img_1} alt="Flag" />
               <p className="fw-bold">
-                {"Arts and "}
-                <br />
-                {"Humanities"}
+			  {result.accommodations_txt_1}
               </p>
             </div>
           </Col>
           <Col sm={4} md={4} className="padding-b-5">
             <div className="Countrty-Icon">
-              <img className="" src={CountryA2} alt="Flag" />
+              <img className="" src={result.accommodations_img_2} alt="Flag" />
               <p className="fw-bold">
-                {"Law and"}
-                <br /> {"Legal Studies"}
-              </p>
-            </div>
-          </Col>
-
-          <Col sm={4} md={4} className="padding-b-5">
-            <div className="Countrty-Icon">
-              <img className="" src={CountryA3} alt="Flag" />
-              <p className="fw-bold">{"Architecture"}</p>
-            </div>
-          </Col>
-
-          <Col sm={4} md={4} className="padding-b-5">
-            <div className="Countrty-Icon">
-              <img className="" src={CountryA4} alt="Flag" />
-              <p className="fw-bold">
-                {"Medicine and"}
-                <br /> {"Life Sciences"}
+			  {result.accommodations_txt_2}
               </p>
             </div>
           </Col>
 
           <Col sm={4} md={4} className="padding-b-5">
             <div className="Countrty-Icon">
-              <img className="" src={CountryA5} alt="Flag" />
+              <img className="" src={result.accommodations_img_3} alt="Flag" />
+              <p className="fw-bold">{result.accommodations_txt_3}</p>
+            </div>
+          </Col>
+
+          <Col sm={4} md={4} className="padding-b-5">
+            <div className="Countrty-Icon">
+              <img className="" src={result.accommodations_img_4} alt="Flag" />
               <p className="fw-bold">
-                {"Social"}
-                <br /> {"Sciences"}
+				{result.accommodations_txt_4} 
               </p>
             </div>
           </Col>
 
           <Col sm={4} md={4} className="padding-b-5">
             <div className="Countrty-Icon">
-              <img className="" src={CountryA6} alt="Flag" />
+              <img className="" src={result.accommodations_img_5} alt="Flag" />
               <p className="fw-bold">
-                {"Engineering "}
-                <br /> {"and Technology"}
+                {result.accommodations_txt_5}
+              </p>
+            </div>
+          </Col>
+
+          <Col sm={4} md={4} className="padding-b-5">
+            <div className="Countrty-Icon">
+              <img className="" src={result.accommodations_img_6} alt="Flag" />
+              <p className="fw-bold">
+			  {result.accommodations_txt_6}
               </p>
             </div>
           </Col>
         </Row>
       </Container>
+
+		)
+	  })}
+
+ 	{this.state.data.map((result) => {
+	   return (
 
       
       <Container className="mb-5" fluid>
         <Row className="pb-5" style={{ width: "85%", margin: "auto" }}>
           <Col sm={12} md={6} className="Lorem mt-5 pt-5">
-            <img className="" src={AccOmmo} alt="Flag" width={"100%"} />
+            <img className="" src={result.grid_img_1} alt="Flag" width={"100%"} />
             <div className="LoremIpsum">
               <p> Lorem Ipsum </p>
             </div>
           </Col>
           <Col sm={12} md={6} className="Lorem mt-5 pt-5">
-            <img className="" src={AccOmmo1} alt="Flag" width={"100%"} />
+            <img className="" src={result.grid_img_2} alt="Flag" width={"100%"} />
             <div className="LoremIpsum">
               <p> Lorem Ipsum </p>
             </div>
           </Col>
           <Col sm={12} md={6} className="Lorem mt-5 pt-5">
-            <img className="" src={AccOmmo2} alt="Flag" width={"100%"} />
+            <img className="" src={result.grid_img_3} alt="Flag" width={"100%"} />
             <div className="LoremIpsum">
               <p> Lorem Ipsum </p>
             </div>
           </Col>
           <Col sm={12} md={6} className="Lorem mt-5 pt-5">
-            <img className="" src={AccOmmo3} alt="Flag" width={"100%"} />
+            <img className="" src={result.grid_img_4} alt="Flag" width={"100%"} />
             <div className="LoremIpsum">
               <p> Lorem Ipsum </p>
             </div>
@@ -961,10 +1040,11 @@ const University = () => {
         </Row>
       </Container>
 
-
-   
-    </>
-  );
-};
-
+		)
+	  })}
+			
+			</>
+			)
+	 }
+ }
 export default University;

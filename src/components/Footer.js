@@ -6,6 +6,8 @@ import { BrowserRouter, NavLink, Routes, Route } from "react-router-dom";
 import Maplogo from "../images/imagev.PNG";
 import Megamindlogo from "../images/megamind-logo.png";
 import FlightLogo from "../images/flight.png";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faXTwitter } from '@fortawesome/free-brands-svg-icons'
 
 import { BsFillArrowUpCircleFill } from "react-icons/bs";
 import About from "./about/About";
@@ -16,13 +18,14 @@ function Footer() {
 
   return (
     <>
+   
       <BrowserRouter>
         <Container fluid>
           <Row
             className="py-5 border-t"
             style={{ width: "80%", margin: "auto" }}
           >
-            <Col sm={12} md={4}>
+            <Col sm={6} md={4}>
               <div className="">
                 <NavLink
                   className=""
@@ -33,20 +36,20 @@ function Footer() {
                 >
                   <img
                     src={Megamindlogo}
-                    className="pb-5"
+                    className="mobile-bottom"
                     alt="Megamind logo"
                   />
                 </NavLink>
                 <div className="padding-top-5 pb-2">
-                  <NavLink to="/" className="fa fa-facebook"></NavLink>
-                  <NavLink to="/" className="fa fa-instagram"></NavLink>
-                  <NavLink to="/" className="fa fa-linkedin"></NavLink>
-                  <NavLink to="/" className="fa fa-youtube"></NavLink>
-                  <NavLink to="/" className="fa fa-twitter"></NavLink>
+                  <NavLink to="https://www.facebook.com/megamindcon/" target="_blank" className="fa fa-facebook"></NavLink>
+                  <NavLink to="https://www.instagram.com/megamindconsultants/" target="_blank" className="fa fa-instagram"></NavLink>
+                  <NavLink to="https://in.linkedin.com/company/megamindcon" target="_blank" className="fa fa-linkedin"></NavLink>
+                  <NavLink to="https://www.youtube.com/@megamindconsultantspvt.ltd2741" target="_blank" className="fa fa-youtube"></NavLink>
+                  <NavLink to="https://twitter.com/megamindcon" target="_blank" className="fa fa-x-twitter">  <FontAwesomeIcon icon={faXTwitter} /> </NavLink>
                 </div>
               </div>
             </Col>
-            <Col sm={12} md={4}>
+            <Col sm={6} md={4} className="paras">
               <h5 className="fw-bold text-black">DELHI OFFICE</h5>
               <p className="fw-bold p-para pt-2"> Megamind Consultants</p>
               <p className="fw-bold p-para"> info@megamindonline.com</p>
@@ -59,7 +62,8 @@ function Footer() {
             <Col sm={12} md={4}>
               <NavLink
                 className="navbar-brand"
-                to="/"
+                target="_blank"
+                to="https://maps.app.goo.gl/AgtnNt6BQKfGjSzh8"
                 style={({ isActive }) => ({
                   color: isActive ? "black" : "white",
                 })}
@@ -73,18 +77,14 @@ function Footer() {
             className="py-5 border-top"
             style={{ width: "80%", margin: "auto" }}
           >
-            <Col sm={12} md={2}>
+            <Col sm={6} md={2}>
               <ul className="list-style-none p-0">
                 <li>
-                  <NavLink className="list-style" to="/">
+                  <NavLink className="list-style" target="_blank" to="/about" exact>
                     {"About Megamind "}
                   </NavLink>
                 </li>
-                <li>
-                  <a className="list-style" href="/about" exact>
-                    {"About Us "}
-                  </a>
-                </li>
+
                 <li>
                   <NavLink className="list-style" to="./">
                     {"  Work with us "}
@@ -92,18 +92,14 @@ function Footer() {
                 </li>
               </ul>
             </Col>
-            <Col sm={12} md={3}>
+            <Col sm={6} md={3}>
               <ul className="list-style-none p-0">
                 <li>
                   <a className="list-style" href="./" exact>
                     {"Home "}
                   </a>
                 </li>
-                <li>
-                  <NavLink className="list-style" to="/">
-                    {" About Us "}
-                  </NavLink>
-                </li>
+
                 <li>
                   <a className="list-style" href="/Ielts" exact>
                     {"IELTS Prepartion "}
@@ -135,7 +131,7 @@ function Footer() {
                   </NavLink>
                 </li>
                 <li>
-                  <NavLink className="list-style" to="/">
+                  <NavLink className="list-style" target="_blank" to="/blog">
                     {"Blog"}
                   </NavLink>
                 </li>
@@ -156,89 +152,81 @@ function Footer() {
                 </li>
               </ul>
             </Col>
-            <Col sm={12} md={2}>
+            <Col sm={6} md={2}>
               <ul className="list-style-none p-0">
                 <li>
                   <NavLink className="list-style" to="/">
-                    {" "}
-                    Study Abroad{" "}
+                    {" Study Abroad "}
                   </NavLink>
                 </li>
                 <li>
-                  <NavLink className="list-style" to="/">
-                    Study in Germany{" "}
+                  <NavLink className="list-style" target="_blank" to="/country?code=GERMANY" exact>
+                    {" Study in Germany "}
                   </NavLink>
                 </li>
                 <li>
-                  <NavLink className="list-style" to="/">
-                    Study in Canada{" "}
+                  <NavLink className="list-style" target="_blank" to="/country?code=CANADA" exact>
+                    {" Study in Canada "}
                   </NavLink>
                 </li>
                 <li>
-                  <NavLink className="list-style" to="/">
-                    Study in Australia{" "}
+                  <NavLink className="list-style" target="_blank" to="/country?code=Australia" exact>
+                    {" Study in Australia "}
                   </NavLink>
                 </li>
                 <li>
-                  <NavLink className="list-style" to="/">
-                    Study in United Kingdom{" "}
+                  <NavLink className="list-style" target="_blank" to="/country?code=UK" exact>
+                    {"Study in United Kingdom "}
                   </NavLink>
                 </li>
                 <li>
-                  <NavLink className="list-style" to="/">
-                    Study in Ireland{" "}
+                  <NavLink className="list-style" target="_blank" to="/country?code=IRELAND" exact>
+                    {" Study in Ireland "}
                   </NavLink>
                 </li>
                 <li>
-                  <NavLink className="list-style" to="/">
-                    Study in New-Zealand{" "}
+                  <NavLink className="list-style" target="_blank" to="/country?code=New Zealand" exact>
+                    {" Study in New-Zealand "}
                   </NavLink>
                 </li>
               </ul>
             </Col>
 
-            <Col sm={12} md={1}>
+            <Col sm={6} md={1}>
               <ul className="list-style-none p-0">
                 <li>
                   <NavLink className="list-style" to="/">
-                    {" "}
-                    Tests{" "}
+                    {"Tests "}
                   </NavLink>
                 </li>
                 <li>
                   <NavLink className="list-style" to="/">
-                    {" "}
-                    IELTS{" "}
+                    {"IELTS"}
                   </NavLink>
                 </li>
                 <li>
                   <NavLink className="list-style" to="/">
-                    {" "}
-                    GMAT{" "}
+                    {"GMAT"}
                   </NavLink>
                 </li>
                 <li>
                   <NavLink className="list-style" to="/">
-                    {" "}
-                    GRE{" "}
+                    {" GRE "}
                   </NavLink>
                 </li>
                 <li>
                   <NavLink className="list-style" to="/">
-                    {" "}
-                    SAT{" "}
+                    {" SAT"}
                   </NavLink>
                 </li>
                 <li>
                   <NavLink className="list-style" to="/">
-                    {" "}
-                    TOEFL{" "}
+                    {"TOEFL "}
                   </NavLink>
                 </li>
                 <li>
                   <NavLink className="list-style" to="/">
-                    {" "}
-                    PTE{" "}
+                    {" PTE"}
                   </NavLink>
                 </li>
               </ul>
@@ -248,56 +236,47 @@ function Footer() {
               <ul className="list-style-none p-0">
                 <li>
                   <NavLink className="list-style" to="/">
-                    {" "}
-                    University of West london{" "}
+                    {"University of West london "}
                   </NavLink>
                 </li>
                 <li>
                   <NavLink className="list-style" to="/">
-                    {" "}
-                    Study Abroad Consultants in Delhi{" "}
+                    {" Study Abroad Consultants in Delhi"}
                   </NavLink>
                 </li>
                 <li>
                   <NavLink className="list-style" to="/">
-                    {" "}
-                    MBA in Canada{" "}
+                    {"MBA in Canada "}
                   </NavLink>
                 </li>
                 <li>
                   <NavLink className="list-style" to="/">
-                    {" "}
-                    Top Colleges in Toronto{" "}
+                    {" Top Colleges in Toronto "}
                   </NavLink>
                 </li>
                 <li>
                   <NavLink className="list-style" to="/">
-                    {" "}
-                    Universities in Canada{" "}
+                    {"Universities in Canada "}
                   </NavLink>
                 </li>
                 <li>
                   <NavLink className="list-style" to="/">
-                    {" "}
-                    Colleges in Toronto{" "}
+                    {" Colleges in Toronto "}
                   </NavLink>
                 </li>
                 <li>
                   <NavLink className="list-style" to="/">
-                    {" "}
-                    Colleges in Vancouver{" "}
+                    {" Colleges in Vancouver "}
                   </NavLink>
                 </li>
                 <li>
                   <NavLink className="list-style" to="/">
-                    {" "}
-                    2 Years Programs in Canada{" "}
+                    {" 2 Years Programs in Canada "}
                   </NavLink>
                 </li>
                 <li>
                   <NavLink className="list-style" to="/">
-                    {" "}
-                    MBA in UK{" "}
+                    {"MBA in UK"}
                   </NavLink>
                 </li>
               </ul>
@@ -307,14 +286,12 @@ function Footer() {
               <ul className="list-style-none">
                 <li>
                   <NavLink className="list-style" to="/">
-                    {" "}
-                    Other Links{" "}
+                    {"Other Links"}
                   </NavLink>
                 </li>
                 <li>
-                  <NavLink className="list-style" to="/">
-                    {" "}
-                    Privacy Policy{" "}
+                  <NavLink className="list-style" exact target="_blank" to="/privacy-policy">
+                    {" Privacy Policy"}
                   </NavLink>
                 </li>
                 <li>
@@ -347,9 +324,8 @@ function Footer() {
           >
             <Col sm={12} md={8}>
               <p style={{ lineHeight: "54px" }} className="p-para">
-                {" "}
                 @Copyright 2021. MegaMind Consultants All rights reserved. |
-                Powered by DigitalXplode{" "}
+                Powered by DigitalXplode
               </p>
             </Col>
 

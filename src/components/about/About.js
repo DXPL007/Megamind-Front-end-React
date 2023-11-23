@@ -7,7 +7,7 @@ import AboutImage from "../../images/aboutus/ds.png";
 import MissionImage from "../../images/aboutus/mission.png";
 import VisionImage from "../../images/aboutus/vision.png";
 import ValueImage from "../../images/aboutus/value.png";
-import CountUp from "react-countup";
+import DirectImage from "../../images/aboutus/awords/directeras.jpg";
 import CounstImage from "../../images/aboutus/1.png";
 import CounstImage1 from "../../images/aboutus/2.png";
 import CounstImage2 from "../../images/aboutus/3.png";
@@ -15,9 +15,38 @@ import CounstImage3 from "../../images/aboutus/4.png";
 import CounstImage4 from "../../images/aboutus/5.png";
 import CounstImage5 from "../../images/aboutus/6.png";
 import ClientView from "../ClientView";
-import AboutHome from "../../images/aboutus/imageabout.png";
-import AboutHomeIcon from "../../images/aboutus/imageicon.png";
+import AwordImages1 from "../../images/aboutus/awords/awords(1).jpeg";
+import AwordImages2 from "../../images/aboutus/awords/awords(2).jpeg";
+import AwordImages3 from "../../images/aboutus/awords/awords(3).jpeg";
+import AwordImages4 from "../../images/aboutus/awords/awords(4).jpeg";
+import AwordImages5 from "../../images/aboutus/awords/awords(5).jpeg";
+import AwordImages6 from "../../images/aboutus/awords/awords(6).jpeg";
+import AwordImages7 from "../../images/aboutus/awords/awords(7).jpeg";
+import AwordImages8 from "../../images/aboutus/awords/awords(8).jpeg";
+import AwordImages9 from "../../images/aboutus/awords/awords(9).jpeg";
+import AwordImages10 from "../../images/aboutus/awords/awords(10).jpeg";
+import AwordImages11 from "../../images/aboutus/awords/awords(11).jpeg";
+import AwordImages12 from "../../images/aboutus/awords/awords(12).jpeg";
+import AwordImages13 from "../../images/aboutus/awords/awords(13).jpeg";
+import AwordImages14 from "../../images/aboutus/awords/awords(14).jpeg";
+import AwordImages15 from "../../images/aboutus/awords/awords(15).jpeg";
+import AwordImages16 from "../../images/aboutus/awords/awords(16).jpeg";
+import AwordImages17 from "../../images/aboutus/awords/awords(17).jpeg";
+import AwordImages18 from "../../images/aboutus/awords/awords(18).jpeg";
+import AwordImages19 from "../../images/aboutus/awords/awords(19).jpeg";
+import AwordImages21 from "../../images/aboutus/awords/awords(21).jpeg";
+import AwordImages22 from "../../images/aboutus/awords/awords(22).jpeg";
+import AwordImages23 from "../../images/aboutus/awords/awords(23).jpeg";
+import AwordImages24 from "../../images/aboutus/awords/awords(24).jpeg";
 
+
+
+import AboutHome from "../../images/aboutus/imageabout.png";
+import AboutHomeIcon1 from "../../images/aboutus/ouricon.png";
+import AboutHomeIcon2 from "../../images/aboutus/emailicon.png";
+import AboutHomeIcon3 from "../../images/aboutus/awordicon.png";
+import Counter from "./Counrter";
+import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 
 var aboutpara = [
   {
@@ -30,78 +59,370 @@ var aboutpara = [
 
 var [{ paragraph, paragraph2 }] = aboutpara;
 
+var directermessage =[
+  {
+    message1:"We have been the leading Education consultants since 2003 started. Megamind is a Study Overseas Education Consultancy firm, providing services such as Career Counselling, Application guidelines, University selection, LOR/SOP, IELTS test preparation to students who are planning their higher studies abroad. It has presence in Delhi and Chandigarh, Delhi being the Head Office.",
+    message2: "Megamind has experienced specialists for each Country as a study destination, IELTS preparation, application process and has end to end services for study abroad aspirants.",
+    message3:"It has placed more than 10000 students globally, serving 150+ Universities and has a Visa success rate of 95%. The company believes in delivering complete satisfaction to its students through its alumni network, a strong VISA process, and its 100% success rate of placing the students abroad."
+  }
+]
+var [{ message1, message2,message3 }] = directermessage;
+
 var About = () => {
   return (
     <>
-      <Container className="py-5 aboutbg" fluid>
-        <Row className="" style={{ width: "90%", margin: "auto" }}>
-          <Col sm={12} md={4}>
-            <img
-              src={AboutHome}
-              alt="Emi Calculater"
-              width={"100%"}
-              className="m-auto d-block"
-            />
-          </Col>
-		  <Col sm={12} md={1}></Col>
-          <Col sm={12} md={7}>
-            <div className="py-4">
-              <h3 className="display-5 m-0 mega-m" style={{ lineHeight: "40px" }}>
-                {" MOEC: Soar Beyond"}
-              </h3>
-              <h3 className="display-5 mega-m">
-                 Your Dreams
-              </h3>
-           
-            <p className="para">
-              Megamind is a team of experts dedicated to supporting the Study
-              Abroad dream of students. We are more than overseas education
-              consultants. Keeping true to our mission to make abroad education
-              accessible to all, Megamind has helped its students reach 10+
-              countries for study abroad programs.
-            </p>
-            <p className="para">
-              We have built a stellar student network that grows and succeeds as
-              a community. Our excellent branch network and association with
-              leading global institutions help us to deliver the best yet
-              affordable education services.
-            </p>
-			
-			</div>
-			<img
-              src={AboutHomeIcon}
-              alt="Emi Calculater"
-              width={"80%"}
-              className="img-count"
-            />
-          </Col>
-        </Row>
-      </Container>
-      <Container className="pb-5" fluid>
-        <Row className="" style={{ width: "90%", margin: "auto" }}>
-          <Col sm={12} md={6}>
-            <div className="py-4">
-              <h3 className="display-5 m-0" style={{ lineHeight: "48px" }}>
-                {" The Story Behind "}
-              </h3>
-              <h3 className="display-5 mega-m">
-                <span className="megamind">M</span>egamind
-              </h3>
-            </div>
-            <p className="para">{paragraph}</p>
-            <p className="para">{paragraph2}</p>
-          </Col>
-          <Col sm={12} md={6}>
-            <img
-              src={AboutImage}
-              alt="Emi Calculater"
-              width={"80%"}
-              className="m-auto d-block"
-            />
-          </Col>
-        </Row>
-      </Container>
+      <Tabs>
+        <Container className="py-5 aboutbg" fluid>
+          <Row className="" style={{ width: "90%", margin: "auto" }}>
+            <Col sm={12} md={4}>
+              <img
+                src={AboutHome}
+                alt="Emi Calculater"
+                width={"100%"}
+                className="m-auto d-block"
+              />
+            </Col>
+            <Col sm={12} md={1}></Col>
+            <Col sm={12} md={7}>
+              <div className="py-4">
+                <h3
+                  className="display-5 m-0 mega-m"
+                  style={{ lineHeight: "40px" }}
+                >
+                  {" MOEC: Soar Beyond"}
+                </h3>
+                <h3 className="display-5 mega-m">Your Dreams</h3>
 
+                <p className="para">
+                  Megamind is a team of experts dedicated to supporting the
+                  Study Abroad dream of students. We are more than overseas
+                  education consultants. Keeping true to our mission to make
+                  abroad education accessible to all, Megamind has helped its
+                  students reach 10+ countries for study abroad programs.
+                </p>
+                <p className="para">
+                  We have built a stellar student network that grows and
+                  succeeds as a community. Our excellent branch network and
+                  association with leading global institutions help us to
+                  deliver the best yet affordable education services.
+                </p>
+              </div>
+
+              <TabList className="d-flex p-0">
+                <Tab className="d-block py-4 px-5 mr-2" style={{background:"#39b449"}}>
+                  <img
+                    src={AboutHomeIcon1}
+                    alt="Emi Calculater"
+                    width={"95%"}
+                    className=""
+                  />
+    
+                </Tab>
+                <Tab className="d-block py-4 px-5 mr-2" style={{background:"#39b449"}}>
+                  <img
+                    src={AboutHomeIcon2}
+                    alt="Emi Calculater"
+                    width={"95%"}
+                    className=""
+                  />
+    
+                </Tab>
+                <Tab className="d-block py-4 px-4" style={{background:"#39b449"}}>
+                  <img
+                    src={AboutHomeIcon3}
+                    alt="Emi Calculater"
+                    width={"95%"}
+                    className=""
+                  />
+    
+                </Tab>
+              </TabList>
+            </Col>
+          </Row>
+        </Container>
+        <Container className="pb-5" fluid>
+          <TabPanel>
+            <Row className="" style={{ width: "90%", margin: "auto" }}>
+              <Col sm={12} md={6}>
+                <div className="py-4">
+                  <h3 className="display-5 m-0" style={{ lineHeight: "48px" }}>
+                    {" The Story Behind "}
+                  </h3>
+                  <h3 className="display-5 mega-m">
+                    <span className="megamind">M</span>egamind
+                  </h3>
+                </div>
+                <p className="para">{paragraph}</p>
+                <p className="para">{paragraph2}</p>
+              </Col>
+              <Col sm={12} md={6}>
+                <img
+                  src={AboutImage}
+                  alt="Emi Calculater"
+                  width={"80%"}
+                  className="m-auto d-block"
+                />
+              </Col>
+            </Row>
+          </TabPanel>
+
+          <TabPanel>
+            <Row className="" style={{ width: "90%", margin: "auto" }}>
+              <Col sm={12} md={6}>
+                <div className="py-4">
+                  <h3 className="display-5 m-0" style={{ lineHeight: "48px" }}>
+                    {" Mr. Ganesh Kejriwal "}
+                  </h3>
+                  <p className="m-0">CEO/Director  <span className="megamind">M</span><span className="mega-m">egamind</span></p>
+
+                </div>
+                <p className="para">{message1}</p>
+                <p className="para">{message2}</p>
+                <p className="para">{message3}</p>
+              </Col>
+              <Col sm={12} md={6}>
+                <img
+                  src={DirectImage}
+                  alt="Emi Calculater"
+                  width={"80%"}
+                  className="m-auto d-block"
+                />
+              </Col>
+            </Row>
+          </TabPanel>
+
+
+          <TabPanel>
+            <Row className="" style={{ width: "90%", margin: "auto" }}>
+              <Col sm={12} md={4}>
+              <img
+                  src={AwordImages1}
+                  alt="AwordImages1"
+                  width={"100%"}
+                  className="mb-2"
+                />
+             
+              </Col>
+              <Col sm={12} md={4}>
+              
+              <img
+                  src={AwordImages2}
+                  alt="AwordImages1"
+                  width={"100%"}
+                  className="mb-2"
+                />
+              </Col>
+              <Col sm={12} md={4}>
+              
+              <img
+                  src={AwordImages3}
+                  alt="AwordImages1"
+                  width={"90%"}
+                  className="mb-2"
+                />
+              </Col>
+
+
+              <Col sm={12} md={4}>
+              
+              <img
+                  src={AwordImages14}
+                  alt="AwordImages1"
+                  width={"100%"}
+                  className="mb-2"
+                />
+              </Col>
+              <Col sm={12} md={4}>
+              
+              <img
+                  src={AwordImages5}
+                  alt="AwordImages1"
+                  width={"100%"}
+                  className="mb-2"
+                />
+              </Col>
+              <Col sm={12} md={4}>
+              
+              <img
+                  src={AwordImages10}
+                  alt="AwordImages1"
+                  width={"100%"}
+                  className="mb-2"
+                />
+              </Col>
+              <Col sm={12} md={4}>
+              
+              <img
+                  src={AwordImages6}
+                  alt="AwordImages1"
+                  width={"100%"}
+                  className="mb-2"
+                />
+              </Col>
+
+
+
+              <Col sm={12} md={4}>
+              
+              <img
+                  src={AwordImages7}
+                  alt="AwordImages1"
+                  width={"100%"}
+                  className="mb-2"
+                />
+              </Col>
+
+              <Col sm={12} md={4}>
+              
+              <img
+                  src={AwordImages8}
+                  alt="AwordImages1"
+                  width={"90%"}
+                  className="mb-2"
+                />
+              </Col>
+
+              <Col sm={12} md={4}>
+              
+              <img
+                  src={AwordImages9}
+                  alt="AwordImages1"
+                  width={"100%"}
+                  className="mb-2"
+                />
+              </Col>
+
+              
+
+              <Col sm={12} md={4}>
+              
+              <img
+                  src={AwordImages11}
+                  alt="AwordImages1"
+                  width={"100%"}
+                  className="mb-2"
+                />
+              </Col>
+
+              <Col sm={12} md={4}>
+              
+              <img
+                  src={AwordImages12}
+                  alt="AwordImages1"
+                  width={"90%"}
+                  className="mb-2"
+                />
+              </Col>
+
+              <Col sm={12} md={4}>
+              
+              <img
+                  src={AwordImages13}
+                  alt="AwordImages1"
+                  width={"100%"}
+                  className="mb-2"
+                />
+              </Col>
+              <Col sm={12} md={4}>
+              
+              <img
+                  src={AwordImages17}
+                  alt="AwordImages1"
+                  width={"100%"}
+                  className="mb-2"
+                />
+              </Col>
+
+              <Col sm={12} md={4}>
+              
+              <img
+                  src={AwordImages4}
+                  alt="AwordImages1"
+                  width={"100%"}
+                  className="mb-2"
+                />
+              </Col>
+              <Col sm={12} md={4}>
+              
+              <img
+                  src={AwordImages15}
+                  alt="AwordImages1"
+                  width={"100%"}
+                  className="mb-2"
+                />
+              </Col>
+              <Col sm={12} md={4}>
+              
+              <img
+                  src={AwordImages16}
+                  alt="AwordImages1"
+                  width={"100%"}
+                  className="mb-2"
+                />
+              </Col>
+              
+              <Col sm={12} md={4}>
+              
+              <img
+                  src={AwordImages18}
+                  alt="AwordImages1"
+                  width={"100%"}
+                  className="mb-2"
+                />
+              </Col>
+              <Col sm={12} md={4}>
+              
+              <img
+                  src={AwordImages19}
+                  alt="AwordImages1"
+                  width={"100%"}
+                  className="mb-2"
+                />
+              </Col>
+
+              <Col sm={12} md={4}>
+              
+              <img
+                  src={AwordImages21}
+                  alt="AwordImages1"
+                  width={"100%"}
+                  className="mb-2"
+                />
+              </Col>
+
+              <Col sm={12} md={4}>
+              
+              <img
+                  src={AwordImages22}
+                  alt="AwordImages1"
+                  width={"100%"}
+                  className="mb-2"
+                />
+              </Col>
+
+
+              <Col sm={12} md={4}>
+              
+              <img
+                  src={AwordImages23}
+                  alt="AwordImages1"
+                  width={"100%"}
+                  className="mb-2"
+                />
+              </Col>
+              <Col sm={12} md={4}>
+              
+              <img
+                  src={AwordImages24}
+                  alt="AwordImages1"
+                  width={"100%"}
+                  className="mb-2"
+                />
+              </Col>
+            </Row>
+          </TabPanel>
+        </Container>
+      </Tabs>
       <Container className="py-5 about-bg" fluid>
         <Row className="pb-5" style={{ width: "90%", margin: "auto" }}>
           <Col sm={12} md={12} className="text-center">
@@ -166,113 +487,7 @@ var About = () => {
         >
           <Col sm={6} md={6}>
             <Row>
-              <Col sm={6} md={6} className="p-2">
-                <div
-                  class="card-counter primary py-5"
-                  style={{ background: "#b7d5ec", color: "#0077c7" }}
-                >
-                  <CountUp
-                    start={0}
-                    end={1}
-                    duration={2.75}
-                    separator=" "
-                    decimals={1}
-                    decimal=""
-                    suffix=" +"
-                    onEnd={() => console.log("Ended! 👏")}
-                    onStart={() => console.log("Started! 💨")}
-                  >
-                    {({ countUpRef, start }) => (
-                      <div className="primery-counter py-4">
-                        <span ref={countUpRef} />
-                        <p style={{ color: "#0077c7" }}> COUNTRIES </p>
-                      </div>
-                    )}
-                  </CountUp>
-                </div>
-              </Col>
-
-              <Col sm={6} md={6} className="p-2">
-                <div
-                  class="card-counter primary py-5 mt-5"
-                  style={{ background: "#bae9c5", color: "#00b836" }}
-                >
-                  <CountUp
-                    start={0}
-                    end={9}
-                    duration={2.75}
-                    separator=" "
-                    decimals={2}
-                    decimal=""
-                    suffix=" +"
-                    onEnd={() => console.log("Ended! 👏")}
-                    onStart={() => console.log("Started! 💨")}
-                  >
-                    {({ countUpRef, start }) => (
-                      <div className="primery-counter py-4">
-                        <span ref={countUpRef} />
-                        <p style={{ color: "#00b836" }}> UNIVERSITIES</p>
-                      </div>
-                    )}
-                  </CountUp>
-                </div>
-              </Col>
-
-              <Col sm={6} md={6} className="p-2">
-                <div
-                  class="card-counter primary py-5 country-mob"
-                  style={{
-                    background: "#bae9c5",
-                    color: "#00b836",
-                    marginTop: "-40px",
-                  }}
-                >
-                  <CountUp
-                    start={0}
-                    end={1.5}
-                    duration={2.75}
-                    separator=" "
-                    decimals={1}
-                    decimal=""
-                    suffix="k+"
-                    onEnd={() => console.log("Ended! 👏")}
-                    onStart={() => console.log("Started! 💨")}
-                  >
-                    {({ countUpRef, start }) => (
-                      <div className="primery-counter py-4">
-                        <span ref={countUpRef} />
-                        <p style={{ color: "#00b836" }}>COURSES</p>
-                      </div>
-                    )}
-                  </CountUp>
-                </div>
-              </Col>
-
-              <Col sm={6} md={6} className="p-2">
-                <div
-                  class="card-counter primary py-5"
-                  style={{ background: "#b7d5ec", color: "#0077c7" }}
-                >
-                  <CountUp
-                    start={0}
-                    end={9}
-                    duration={2.75}
-                    separator=" "
-                    decimals={1}
-                    decimal=""
-                    suffix="k+"
-                    onEnd={() => console.log("Ended! 👏")}
-                    onStart={() => console.log("Started! 💨")}
-                  >
-                    {({ countUpRef, start }) => (
-                      <div className="primery-counter py-4">
-                        <span ref={countUpRef} />
-                        <p style={{ color: "#0077c7" }}>SATISFIED STUDENTS</p>
-                      </div>
-                    )}
-                  </CountUp>
-                </div>
-              </Col>
+              <Counter />
             </Row>
           </Col>
           <Col sm={6} md={6}>

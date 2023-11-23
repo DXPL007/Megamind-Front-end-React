@@ -19,13 +19,13 @@ function Winning() {
                     <Row className="pb-5 studyslidt" style={{ width:"80%",margin:"auto"}}>
 					<Col sm={12} md={12} className="pt-3 pb-5 text-center">
 					<h2 className="display-6 text-black"> Our Winning Record </h2>
-                    <p>No tall claims, we back the efficiency of our consultancy with stats. Check for yourselves!</p>
+                    <p>No False Claims, We Back the Efficiency of Our Consultancy with Stats. Check for Yourself</p>
 					</Col>
 						<Col sm={4} md={3}>
 							<ul className="list-style-none">
                             <li className="text-center">  
                               <img src={Winning0} className="w-100 pb-3" alt="logo" />
-                              <p className="text-font">15 k +</p>
+                              <p className="text-font">15 K+</p>
                                     <h5>Successful Admits</h5>
                               </li>
 				
@@ -36,7 +36,7 @@ function Winning() {
                             <li className="text-center">  
                                      <img src={Winning1} className="w-100 pb-3" alt="logo" />
                                      <p className="text-font">$15 Million+</p>
-                                    <h5>Scholorships Achievd</h5>
+                                    <h5>Achieved Scholarships</h5>
                                 
                                 </li>
 		

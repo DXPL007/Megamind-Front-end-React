@@ -17,7 +17,7 @@ function MapUse() {
                 <Container className="mobile-padding" fluid>
                     <Row className="py-5" style={{ width: "75%", margin: "auto" }}>
                         <Col sm={12} md={12} className="text-center pb-5">
-                        <h2 className=""> We connect <strong style={{color:"black"}}>School, Students, </strong> & <br/> <strong style={{color:"black"}}> Recruitment Partneres </strong> from every part of the world</h2>
+                        <h2 className=""> We connect <strong style={{color:"black"}}>Schools, Students, </strong> & <br/> <strong style={{color:"black"}}> Recruitment Partners </strong> From Every Part of the World</h2>
                         </Col>
                     <img className="py-4" src={MapImage} alt='Flag'/>
                     </Row>

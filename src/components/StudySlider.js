@@ -1,18 +1,14 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
-import StudyImage from "../images/studysliders/tob.png";
-import StudyImage2 from "../images/studysliders/town.png";
-import StudyImage4 from "../images/studysliders/img.jpg";
-import StudyImage5 from "../images/studysliders/irlend.jpg";
-import StudyImage6 from "../images/studysliders/uk.jpeg";
-import StudyImage7 from "../images/studysliders/germany.jpg";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
-import { Routes, Route, NavLink, Outlet } from "react-router-dom";
+import { Routes, Route, NavLink } from "react-router-dom";
 import Country from "./country/Country";
+import axios from 'axios';
+
 
 const StudySlider = () => {
   const responsive = {
@@ -26,14 +22,28 @@ const StudySlider = () => {
       items: 3,
     },
     tablet: {
-      breakpoint: { max: 1024, min: 464 },
+      breakpoint: { max: 1024, min: 600 },
       items: 2,
     },
     mobile: {
-      breakpoint: { max: 464, min: 0 },
+      breakpoint: { max: 600, min: 0 },
       items: 2,
     },
   };
+
+
+  const [study_sliders, setData] = useState([]);
+		
+	  useEffect(() => {
+	  axios.get("https://megamindonline.in/admin/webmanager/controller.php?command=GET_HOME_DATA_STUDY_DESTINATIONS")
+	  .then((response) => {
+		 setData(response.data.split(";").filter(r => r !== ''));
+	  })
+	  .catch((error) => {
+		console.log(error);
+	 });
+	}, []);
+
 
   return (
     <section class="studyslidt" style={{ background: "#f9fafc" }}>
@@ -75,79 +85,22 @@ const StudySlider = () => {
               slidesToSlide={1}
               swipeable
             >
-              <div className="card-boxer">
-                <NavLink to="./country" exact target="_blank">
-                  <img
-                    className="img-fluid"
-                    alt="100%x280"
-                    src={StudyImage}
-                    title="Study in Canada"
-                  />
-                  <h5 className="Box-Title">Study in Canada</h5>
-                </NavLink>
-              </div>
-
-              <div className="card-boxer">
-                <NavLink to="./country" exact target="_blank">
-                  <img
-                    className="img-fluid border-radius"
-                    alt="100%x280"
-                    src={StudyImage7}
-                    title="Study in Germany"
-                  />
-                  <h5 className="Box-Title">Study in Germany</h5>
-                </NavLink>
-                <Outlet />
-              </div>
-
-              <div className="card-boxer">
-                <NavLink to="./country" exact target="_blank">
-                  <img
-                    className="img-fluid"
-                    alt="100%x280"
-                    src={StudyImage2}
-                    title="Study in Australia"
-                  />
-                  <h5 className="Box-Title">Study in Australia</h5>
-                </NavLink>
-                <Outlet />
-              </div>
-
-              <div className="card-boxer">
-                <NavLink to="./country" exact target="_blank">
-                  <img
-                    className="img-fluid border-radius"
-                    alt="100%x280"
-                    src={StudyImage6}
-                    title="Study in U.K."
-                  />
-                  <h5 className="Box-Title">Study in U.K.</h5>
-                </NavLink>
-              </div>
-
-              <div className="card-boxer">
-                <NavLink to="./country" exact target="_blank">
-                  <img
-                    className="img-fluid border-radius"
-                    alt="100%x280"
-                    src={StudyImage4}
-                    title="Study in New Zealand"
-                  />
-                  <h5 className="Box-Title">Study in New Zealand</h5>
-                </NavLink>
-              </div>
-
-              <div className="card-boxer">
-                <NavLink to="./country" exact target="_blank">
-                  <img
-                    className="img-fluid border-radius"
-                    alt="100%x280"
-                    src={StudyImage5}
-                    title="Study in Ireland"
-                  />
-                  <h5 className="Box-Title">Study in Ireland</h5>
-                </NavLink>
-              </div>
+          { study_sliders.map((sd) => 
+			  (
+				<React.Fragment>
+				 <div className="card-boxer">
+					<NavLink to={sd.split(",")[2]} exact target="_blank">
+					  <img
+						className="img-fluid"
+						alt="100%x280"
+						src={sd.split(",")[1]}
+						title=""
+					  />
+					  <h5 className="Box-Title">{sd.split(",")[0]}</h5>
+					</NavLink>
+				  </div>
+				</React.Fragment>
+			  ))}
             </Carousel>
 
           </Col>

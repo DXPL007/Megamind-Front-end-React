@@ -1,12 +1,13 @@
 import React from "react";
 import Container from 'react-bootstrap/Container';
 import "../fonts/font.css";
-import { BrowserRouter, Routes, Route, NavLink, } from "react-router-dom";
+import { BrowserRouter, Routes, Route, NavLink, Link } from "react-router-dom";
 import Home from "./Home";
 import Megamindlogo from '../images/megamind-logo.png';
 import { BiSolidPhoneCall } from "react-icons/bi";
 import WhatsappIocn from '../images/whatsapicon.png'
 import Country from "./country/Country";
+import ApplyImage from "../images/applynow.png";
 import Services from "./services/Services";
 import FinanceServices from "./financeservices/Finance-Services";
 import Contact from "./contact/Contact";
@@ -19,17 +20,44 @@ import Offcanvas from 'react-bootstrap/Offcanvas';
 import University from "./University/University";
 import About from "./about/About";
 import Blog from "./blog/Blog";
-import Post1 from "./blog/Post1";
+import Post from "./blog/Post";
+import Alluniversity from "./AllUniversity/Alluniversity";
+import Courses from "./courses/Courses";
 
+//Axios for get request
+import { useEffect, useState } from "react";
+import axios from 'axios';
+import $ from 'jquery';
+import PrivacyPolicy from "./privacy/PrivacyPolicy";
+import LoanCalculator from "./common/LoanCalculator";
 
+function refreshPage(event) {
+    //alert("refreshPage called.."+$(event.target).attr("href"));	
+    window.location.href=$(event.target).attr("href");
+  }
 
 
 function Header() {
-  return (
+
+ const [countries, setData] = useState([]);
+	
+  useEffect(() => {
+  axios.get("https://megamindonline.com/admin/webmanager/controller.php?command=GET_ALL_COUNTRIES")
+  .then((response) => {
+     setData(response.data.split(";").filter(r => r !== ''));
+  })
+  .catch((error) => {
+    console.log(error);
+  });
+ }, []);
+ 
+
+ 
+ return (
 
     <>
 
-      <BrowserRouter>
+      <BrowserRouter forceRefresh={true}>
 
 
         {['lg'].map((expand) => (
@@ -62,33 +90,22 @@ function Header() {
                     title="Countries"
                     id={`offcanvasNavbarDropdown-expand-${expand}`}
                   >
-                    <NavDropdown.Item>
-                    <NavLink className="nav-link" to="/country" exact style={({ isActive }) => ({ color: isActive ? '#0693e3' : 'black' })}>Study in Canada</NavLink>
-                    </NavDropdown.Item>
-                    <NavDropdown.Divider />
-                    <NavDropdown.Item href="#action4">
-                    <NavLink className="nav-link" to="/country" exact style={({ isActive }) => ({ color: isActive ? '#0693e3' : 'black' })}>Study in Germany</NavLink>
-                    </NavDropdown.Item>
-                    <NavDropdown.Divider />
-                    <NavDropdown.Item>
-                    <NavLink className="nav-link" to="/country" exact style={({ isActive }) => ({ color: isActive ? '#0693e3' : 'black' })}>Study in Australia</NavLink>
-                    </NavDropdown.Item>
-                    <NavDropdown.Divider />
-                    <NavDropdown.Item>
-                    <NavLink className="nav-link" to="/country" exact style={({ isActive }) => ({ color: isActive ? '#0693e3' : 'black' })}>Study in U.K</NavLink>
-                    </NavDropdown.Item>
-                    <NavDropdown.Divider />
-                    <NavDropdown.Item>
-                    <NavLink className="nav-link" to="/country" exact style={({ isActive }) => ({ color: isActive ? '#0693e3' : 'black' })}>Study in Ireland</NavLink>
-                    </NavDropdown.Item>
-                    <NavDropdown.Divider />
-                    <NavDropdown.Item>
-                    <NavLink className="nav-link" to="/country" exact style={({ isActive }) => ({ color: isActive ? '#0693e3' : 'black' })}>Study in New Zealand</NavLink>
-                    </NavDropdown.Item>
+                        					  
+					  { countries.map((country) => 
+					  (
+					    <React.Fragment>
+						<NavDropdown.Item>
+						<Link reloadDocument={true}  className="nav-link"  to={"/country?code="+country} onClick={refreshPage}>{"Study In " + country}</Link>
+						</NavDropdown.Item>
+						<NavDropdown.Divider />
+						</React.Fragment>
+					  ))}
                   </NavDropdown>
-                <NavLink className="nav-link" to="/financeservices" exact style={({ isActive }) => ({ color: isActive ? '#0693e3' : 'black' })}>Financial Services</NavLink>
-                <NavLink className="nav-link" to="/contact" exact style={({ isActive }) => ({ color: isActive ? '#0693e3' : 'black' })}>Conatct Us</NavLink>
-                <NavLink className="nav-link" to="/blog" style={({ isActive }) => ({ color: isActive ? 'black' : 'white' })}>Blog</NavLink>
+              
+
+  			    <NavLink className="nav-link" to="/financeservices" exact style={({ isActive }) => ({ color: isActive ? '#0693e3' : 'black' })}>Financial Services</NavLink>
+                <NavLink className="nav-link" to="/contact" exact style={({ isActive }) => ({ color: isActive ? '#0693e3' : 'black' })}>Contact Us</NavLink>
+                <NavLink className="nav-link" to="/blog" style={({ isActive }) => ({ color: isActive ? '#0693e3' : 'black' })}>Blogs</NavLink>
               
                 </Nav>
                 <Form className="d-flex align-items-center">
@@ -109,9 +126,9 @@ function Header() {
  
 
         <Routes>
-          <Route exact path="/" element={<Home />} />
+        <Route exact path="/" element={<Home />} />
           <Route exact path="/services" element={<Services/>} />
-          <Route exact path="/country" element={<Country/>} />
+          <Route  path="/country/*" element={<Country/>} />
           <Route exact path="/contact" element={<Contact/>} />
           <Route exact path="/ielts" element={<Ielts/>} />
       
@@ -119,11 +136,22 @@ function Header() {
           <Route exact path="/university" element={<University/>} />
           <Route exact path="/about" element={<About/>} />
           <Route exact path="/blog" element={<Blog/>} />
-          <Route exact path="/post1" element={<Post1/>} />
 
+          <Route exact path="/post" element={<Post/>} />
+          <Route exact path="/alluniversity" element={<Alluniversity />} />
+          <Route exact path="/courses" element={<Courses />} />
+          <Route exact path="/privacy-policy" element={<PrivacyPolicy/>} />
+          <Route exact path="/loan-calculater" element={<LoanCalculator/>} />
 
         </Routes>
 
+        <Link to="https://megamindonline.co.in/registrationForm/" target="_blank">
+          <img
+            src={ApplyImage}
+            class="pos1 d-lg-block d-md-block d-none"
+            alt=""
+          />
+        </Link>
       </BrowserRouter>
     </>
   )

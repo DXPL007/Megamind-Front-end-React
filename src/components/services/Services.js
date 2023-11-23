@@ -5,6 +5,12 @@ import Col from "react-bootstrap/Col";
 import "./service.css";
 import { Link } from "react-router-dom";
 import GridImage from "../../images/services/chat.png";
+import GridImage1 from "../../images/services/google-forms.png";
+import GridImage2 from "../../images/services/advice.png";
+import GridImage3 from "../../images/services/award.png";
+import GridImage4 from "../../images/services/world.png";
+import GridImage5 from "../../images/services/plane.png";
+import GridImage6 from "../../images/services/plus.png";
 import { BsArrowRightCircle } from "react-icons/bs";
 
 function Services() {
@@ -54,7 +60,7 @@ function Services() {
           <Col sm={12} md={4} className="pt-4">
             <div className="box-part text-left">
               <div className="timicon">
-                <img className="w-80" src={GridImage} alt="Flag" />
+                <img className="w-80" src={GridImage1} alt="Flag" />
               </div>
               <div className="title">
                 <h3 className="fw-bold  py-3">
@@ -77,7 +83,7 @@ function Services() {
           <Col sm={12} md={4} className="pt-4">
             <div className="box-part text-left">
               <div className="timicon">
-                <img className="w-80" src={GridImage} alt="Flag" />
+                <img className="w-80" src={GridImage2} alt="Flag" />
               </div>
               <div className="title">
                 <h3 className="fw-bold">
@@ -100,7 +106,7 @@ function Services() {
           <Col sm={12} md={4} className="">
             <div className="box-part text-left">
               <div className="timicon">
-                <img className="w-80" src={GridImage} alt="Flag" />
+                <img className="w-80" src={GridImage3} alt="Flag" />
               </div>
               <div className="title">
                 <h3 className="fw-bold">
@@ -123,7 +129,7 @@ function Services() {
           <Col sm={12} md={4} className="">
             <div className="box-part text-left">
               <div className="timicon">
-                <img className="w-80" src={GridImage} alt="Flag" />
+                <img className="w-80" src={GridImage4} alt="Flag" />
               </div>
               <div className="title">
                 <h3 className="fw-bold py-3">
@@ -147,7 +153,7 @@ function Services() {
           <Col sm={12} md={4} className="">
             <div className="box-part text-left">
               <div className="timicon">
-                <img className="w-80" src={GridImage} alt="Flag" />
+                <img className="w-80" src={GridImage5} alt="Flag" />
               </div>
               <div className="title">
                 <h3 className="fw-bold py-3">
@@ -172,7 +178,7 @@ function Services() {
           <Col sm={12} md={4} className="">
             <div className="box-part text-left">
               <div className="timicon">
-                <img className="w-80" src={GridImage} alt="Flag" />
+                <img className="w-80" src={GridImage6} alt="Flag" />
               </div>
               <div className="title">
                 <h3 className="fw-bold py-3">

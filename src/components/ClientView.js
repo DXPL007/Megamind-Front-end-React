@@ -2,18 +2,27 @@ import React from "react";
 import Container from 'react-bootstrap/Container';
 import Col from 'react-bootstrap/Col';
 
-import Client0 from '../images/clientlogo/1copy.png';
-import Client1 from '../images/clientlogo/2copy.png';
-import Client2 from '../images/clientlogo/3copy.png';
-import Client3 from '../images/clientlogo/4copy.png';
-import Client4 from '../images/clientlogo/5copy.png';
-import Client5 from '../images/clientlogo/6copy.png';
-import Client6 from '../images/clientlogo/7copy.png';
-import Client7 from '../images/clientlogo/8copy.png';
 import Row from 'react-bootstrap/Row';
+import { useEffect, useState } from "react";
+import axios from 'axios';
+// import $ from 'jquery';
 
 
 function ClientView() {
+	
+	 const [clientlogos, setData] = useState([]);
+		
+	  useEffect(() => {
+	  axios.get("https://megamindonline.com/admin/webmanager/controller.php?command=GET_HOME_DATA_AA")
+	  .then((response) => {
+		 setData(response.data.split(";").filter(r => r !== ''));
+	  })
+	  .catch((error) => {
+		console.log(error);
+	  });
+	 }, []);
+	
+	
     return (
         <>
             <Container style={{background: ""}} fluid>
@@ -23,72 +32,15 @@ function ClientView() {
                      </Col>
                         <div className="slider">
                             <div className="slide-track">
+
+							  { clientlogos.map((clientlogo) => 
+							  (
+								<React.Fragment>
                                 <div className="slide">
-                                    <img src={Client0} alt="logo" />
+                                    <img src={clientlogo} alt="logo" />
                                 </div>
-                                <div className="slide">
-                                    <img src={Client1} alt="logo" />
-                                </div>
-                                <div className="slide">
-                                    <img src={Client2} alt="logo" />
-                                </div>
-                                <div className="slide">
-                                    <img src={Client3} alt="logo" />
-                                </div>
-                                <div className="slide">
-                                    <img src={Client4} alt="logo" />
-                                </div>
-                                <div className="slide">
-                                    <img src={Client5} alt="logo" />
-                                </div>
-                                <div className="slide">
-                                    <img src={Client6} alt="logo" />
-                                </div>
-                                <div className="slide">
-                                    <img src={Client4} alt="logo" />
-                                </div>
-                                <div className="slide">
-                                    <img src={Client5} alt="logo" />
-                                </div>
-                                <div className="slide">
-                                    <img src={Client6} alt="logo" />
-                                </div>
-                                <div className="slide">
-                                    <img src={Client7} alt="logo" />
-                                </div>
-                                <div className="slide">
-                                    <img src={Client0} alt="logo" />
-                                </div>
-                                <div className="slide">
-                                    <img src={Client1} alt="logo" />
-                                </div>
-                                <div className="slide">
-                                    <img src={Client2} alt="logo" />
-                                </div>
-                                <div className="slide">
-                                    <img src={Client3} alt="logo" />
-                                </div>
-                                <div className="slide">
-                                    <img src={Client4} alt="logo" />
-                                </div>
-                                <div className="slide">
-                                    <img src={Client5} alt="logo" />
-                                </div>
-                                <div className="slide">
-                                    <img src={Client6} alt="logo" />
-                                </div>
-                                <div className="slide">
-                                    <img src={Client4} alt="logo" />
-                                </div>
-                                <div className="slide">
-                                    <img src={Client5} alt="logo" />
-                                </div>
-                                <div className="slide">
-                                    <img src={Client6} alt="logo" />
-                                </div>
-                                <div className="slide">
-                                    <img src={Client7} alt="logo" />
-                                </div>
+								</React.Fragment>
+							  ))}
 
                             </div>
                         </div>

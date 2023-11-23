@@ -75,7 +75,7 @@ function Contact() {
                     </div>
 
                     <Row>
-                      <Col sm={6} md={6} className="col">
+                      <Col sm={12} md={6} className="">
                         <div class="form-group">
                           <select class="custom-select form-control" required>
                             <option value="">City</option>
@@ -88,7 +88,7 @@ function Contact() {
                           </div>
                         </div>
                       </Col>
-                      <Col sm={6} md={6} className="col">
+                      <Col sm={12} md={6} className="">
                         <div class="form-group">
                           <select class="custom-select form-control" required>
                             <option value="">State</option>
@@ -99,6 +99,22 @@ function Contact() {
                           <div class="invalid-feedback">
                             Example invalid custom select feedback
                           </div>
+                        </div>
+                      </Col>
+                      <Col sm={12} md={12} className="">
+                        <div class="form-check">
+                          <input
+                            class="form-check-input"
+                            type="checkbox"
+                            value=""
+                            id="defaultCheck1"
+                          />
+                          <label class="form-check-label" for="defaultCheck1">
+                            <small>I authorize Megamind Consultants representatives to
+                            Call, SMS, Email or WhatsApp me about its products
+                            and offers. This consent overrides any registration
+                            for DNC / NDNC.</small>
+                          </label>
                         </div>
                       </Col>
                     </Row>

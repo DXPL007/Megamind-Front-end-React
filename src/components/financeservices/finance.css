@@ -163,6 +163,7 @@ input[type="range"]:focus::-ms-fill-upper {
 }
 .box-layou {
   background: #036ab7;
+  width: 100%;
   border-radius: 6px;
   .title {
     color: white;
@@ -196,11 +197,17 @@ input[type="range"]:focus::-ms-fill-upper {
 .carousel .media {
   position: relative;
   padding: 0 0 0 0px;
-  margin-left: 20px;
+  margin-left: 0px;
+}
+.med{
+  align-items: center !important;
+}
+.card-boxer p{
+  padding-bottom: 10px;
 }
 .carousel .media img {
-  width: 75px;
-  height: 75px;
+  width: 50px;
+  height: 50px;
   display: block;
   border-radius: 50%;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
@@ -209,9 +216,11 @@ input[type="range"]:focus::-ms-fill-upper {
 .carousel .testi {
   background: #036ab7;
   padding: 15px;
+  border-radius:6px;
   .testimonial p {
     color: #fff;
     font-size: 12px;
+    text-align: left;
     border-bottom: 1px solid white;
   }
 }
@@ -292,4 +301,94 @@ input[type="range"]:focus::-ms-fill-upper {
 .star-rating i {
   font-size: 14px;
   color: #ffdc12;
+}
+.carousel .react-multiple-carousel__arrow
+{
+bottom: 0px;
+}
+
+.carousel .react-multiple-carousel__arrow--left {
+  left: calc(45% + 1px);
+}
+.carousel .react-multiple-carousel__arrow--right {
+  right: calc(45% + 1px);
+}
+.carousel .react-multi-carousel-track{
+padding-bottom: 50px;
+}
+.accoudin .accordion-button{
+  font-size: 22px;
+   font-weight: 600;
+   background: none;
+   padding: 10px 10px;
+}
+.accordion-button:not(.collapsed) {
+  color: #ffffff;
+  background-color: #026cb8;
+}
+.accordion-button:focus {
+  border-color: none;
+  box-shadow: none;
+}
+.accoudin .accordion-item{
+  border: none;
+  background: #f3f3f3;
+}
+.accoudin .accordion-body {
+  background: white;
+}
+.form-bg{
+  background-color:#d7ebf6;
+}
+.aacurdin-bg{
+  background-color:#f3f3f3;
+}
+
+.form-view {
+  width: 100%;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--bs-body-color);
+  appearance: none;
+  background-color: #d7ebf6;
+  background-clip: padding-box;
+  border: 0;
+  border-bottom: 1px solid #2769b1;
+  margin-bottom: 10px;
+  padding: 5px;
+
+}
+.cotrosls, .PhoneInputInput {
+  color: black !important;
+}
+.form-view:focus-visible{
+  border:none !important;
+}
+.form-view::placeholder{
+  color:#2769b1;
+  font-weight: 700;
+  font-size: 16px;
+}
+
+.form-view {
+  color:#2769b1;
+  font-weight: 700;
+  font-size: 16px;
+}
+ .form-view .PhoneInputInput::placeholder{
+  color:#2769b1;
+  font-weight: 700;
+  font-size: 16px;
+}
+
+/* // Mobile Device Only */
+
+@media (max-width: 992px) { 
+  .carousel .react-multiple-carousel__arrow--right {
+    right: calc(35% + 1px);
+}
+.carousel .react-multiple-carousel__arrow--left {
+  left: calc(35% + 1px);
+}
 }

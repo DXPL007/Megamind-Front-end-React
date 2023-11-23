@@ -11,10 +11,14 @@ import Flag2 from "../images/flag/flag2.png";
 import Flag3 from "../images/flag/flag3.png";
 import Flag4 from "../images/flag/flag4.png";
 import Flag5 from "../images/flag/flag5.png";
+import Flag6 from "../images/flag/flag6.png";
 import "react-phone-number-input/style.css";
 import PhoneInput from "react-phone-number-input";
 import { NavLink } from "react-router-dom";
 import Modal from "react-modal";
+import axios from 'axios';
+// import $ from 'jquery';
+
 
 const customStyles = {
   content: {
@@ -38,7 +42,21 @@ function ArtboardHome() {
     setIsOpen(false);
   }
 
-
+  function sendEmail(e)
+  {
+	  e.preventDefault();
+	  //alert("sendEmail called...");
+	  var name = document.getElementById("inlineFormInputName").value;
+	  var email = document.getElementById("exampleInputEmail1").value;
+	  var country = document.getElementById("exampleFormControlSelect1").value;
+	  var mobile_no = document.getElementById("mobile_no").value;;
+      var geturl = 'https://megamindonline.com/admin/webmanager/controller.php?command=SEND_ENQUIRY_EMAIL&name='+name+"&email="+email+"&country="+country+"&mobile="+mobile_no;
+	  console.log("geturl="+geturl);
+      axios.get(geturl).then(res => 
+        {
+		  alert("Your enquiry has been registered successfully.");
+		}); 
+  }
 
   return (
     <>
@@ -48,7 +66,7 @@ function ArtboardHome() {
           <Col sm={12} md={4}>
             <h2 className="text-left display-8 fw-light text-black">
               {" Your Study  "}
-              <br /> Abroad Expert{" "}
+              <br /> {"Abroad Expert"}
             </h2>
             <p className="m-0 pt-2 pb-4 paragraph">
               {
@@ -56,7 +74,7 @@ function ArtboardHome() {
               }
             </p>
             <div className="d-flex pt-5 pb-4 ">
-            <NavLink to="/country" target="_blank">
+            <NavLink to="/country?code=UK" target="_blank">
                 <img
                   src={Flag0}
                   className=" zoom-thumbnail w-100 Flag"
@@ -65,7 +83,7 @@ function ArtboardHome() {
                   title="United Kingdom"
                 />
               </NavLink>
-              <NavLink to="/country" target="_blank">
+              <NavLink to="/country?code=USA" target="_blank">
                 <img
                   src={Flag1}
                   className="zoom-thumbnail  w-100 Flag"
@@ -74,16 +92,16 @@ function ArtboardHome() {
                   title=" United States of America"
                 />
               </NavLink>
-              <NavLink to="/country" target="_blank">
+              <NavLink to="/country?code=GERMANY" target="_blank">
                 <img
                   src={Flag3}
                   className="zoom-thumbnail  w-100 Flag"
                   style={{ marginTop: "-50px" }}
                   alt="ImageMaker"
-                  title="Ireland"
+                  title="Germany"
                 />
               </NavLink>
-              <NavLink to="/country" target="_blank">
+              <NavLink to="/country?code=Australia" target="_blank">
                 <img
                   src={Flag5}
                   className="zoom-thumbnail  w-100 Flag"
@@ -92,7 +110,7 @@ function ArtboardHome() {
                   title="Australia"
                 />
               </NavLink>
-              <NavLink to="/country" target="_blank">
+              <NavLink to="/country?code=New Zealand" target="_blank">
                 <img
                   src={Flag4}
                   className="zoom-thumbnail  w-100 Flag"
@@ -101,9 +119,18 @@ function ArtboardHome() {
                   title="New Zealand"
                 />
               </NavLink>
-              <NavLink to="/country" target="_blank">
+              <NavLink to="/country?code=CANADA" target="_blank">
                 <img
                   src={Flag2}
+                  className="zoom-thumbnail  w-100 Flag"
+                  style={{ marginTop: "-50px" }}
+                  alt="ImageMaker"
+                  title="Canada"
+                />
+              </NavLink>
+              <NavLink to="/country?code=IRELAND" target="_blank">
+                <img
+                  src={Flag6}
                   className="zoom-thumbnail  w-100 Flag"
                   style={{ marginTop: "-50px" }}
                   alt="ImageMaker"
@@ -135,7 +162,7 @@ function ArtboardHome() {
           <Col sm={12} md={4}>
             <div className="card-boxx m-3" id="enquiry">
               <h4 className="text-center fw-thin">Enquiry Now </h4>
-              <Form className="py-3" onSubmit="return confirm('Do you want to submit?') " method="Get">
+              <Form className="py-3"  method="Post">
                 <div class="form-group">
                   <input
                     type="text"
@@ -170,6 +197,7 @@ function ArtboardHome() {
                 <div class="form-group">
                   <PhoneInput
                     className="form-control"
+					id="mobile_no"
                     placeholder="Enter phone number"
                     value={value}
                     onChange={setValue}
@@ -179,7 +207,7 @@ function ArtboardHome() {
                   />
                 </div>
 
-                <input type="submit" class="mt-btn btn btn-primary" value="Submit"/>
+                <input type="button" class="mt-btn btn btn-primary" value="Submit" onClick={sendEmail}/>
               </Form>
             </div>
           </Col>
@@ -197,11 +225,10 @@ function ArtboardHome() {
             x
           </button>
 
-          <form action="https://megamindonline.com/wp-content/uploads/2021/09/Megamind-Brouchre_.pdf" target="_blank" className="py-3" style={{ width: "300px" }}>
+          <form action="https://shorturl.at/imxS7" target="_blank" className="py-3" style={{ width: "300px" }}>
             <div class="form-group">
               <label for="name" className="py-2">
-                {" "}
-                Full Name{" "}
+                {"Full Name"}
               </label>
               <input
                 type="name"
