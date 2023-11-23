@@ -7,10 +7,6 @@ import "./assets/js/Slide.jsx";
 import "./fonts/font.css";
 
 
-
-
-
-
 function App() {
 
 	return (
