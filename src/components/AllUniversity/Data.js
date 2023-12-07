@@ -447,19 +447,9 @@ const data =[
        
     },
 
-    {
-        id:45,
-        image:"https://megamindonline.com/static/media/alluniversity/UK/Megamind.jpg",
-        imagin:"https://leverageedunew.s3.amazonaws.com/leverage-finance/link.png",
-        title:"Megamind",
-        subdescription:" Metro City",
-        description:"United Kingdom",
-        category:"UK",
-       
-    },
 
     {
-        id:46,
+        id:45,
         image:"https://megamindonline.com/static/media/alluniversity/UK/MiddlesexUniversity.jpg",
         imagin:"https://leverageedunew.s3.amazonaws.com/leverage-finance/link.png",
         title:"Middlesex University",
@@ -471,7 +461,7 @@ const data =[
 
 
     {
-        id:47,
+        id:46,
         image:"https://megamindonline.com/static/media/alluniversity/UK/NorthamptonUniversity.jpg",
         imagin:"https://leverageedunew.s3.amazonaws.com/leverage-finance/link.png",
         title:"Northampton University",
@@ -482,7 +472,7 @@ const data =[
     },
 
     {
-        id:48,
+        id:47,
         image:"https://megamindonline.com/static/media/alluniversity/UK/NorthumbriaUniversity.jpg",
         imagin:"https://leverageedunew.s3.amazonaws.com/leverage-finance/link.png",
         title:"Northumbria University",
@@ -492,7 +482,7 @@ const data =[
        
     },
     {
-        id:49,
+        id:48,
         image:"https://megamindonline.com/static/media/alluniversity/UK/OxfordBrookesUniversity.jpg",
         imagin:"https://leverageedunew.s3.amazonaws.com/leverage-finance/link.png",
         title:"Oxford Brookes University",
@@ -502,7 +492,7 @@ const data =[
        
     },
     {
-        id:50,
+        id:49,
         image:"https://megamindonline.com/static/media/alluniversity/UK/RoehamptonUniversity.jpg",
         imagin:"https://leverageedunew.s3.amazonaws.com/leverage-finance/link.png",
         title:"Roehampton University",
@@ -512,7 +502,7 @@ const data =[
        
     },
     {
-        id:51,
+        id:50,
         image:"https://megamindonline.com/static/media/alluniversity/UK/SolentUniversity.jpg",
         imagin:"https://leverageedunew.s3.amazonaws.com/leverage-finance/link.png",
         title:"Solent University",
@@ -522,7 +512,7 @@ const data =[
        
     },
     {
-        id:52,
+        id:51,
         image:"https://megamindonline.com/static/media/alluniversity/UK/Tessideuniversity.jpg",
         imagin:"https://leverageedunew.s3.amazonaws.com/leverage-finance/link.png",
         title:"Tesside university",
@@ -532,7 +522,7 @@ const data =[
        
     },
     {
-        id:53,
+        id:52,
         image:"https://megamindonline.com/static/media/alluniversity/UK/UniversityofHertfordshire.jpg",
         imagin:"https://leverageedunew.s3.amazonaws.com/leverage-finance/link.png",
         title:"University of Hertfordshire",
@@ -542,7 +532,7 @@ const data =[
        
     },
     {
-        id:54,
+        id:53,
         image:"https://megamindonline.com/static/media/alluniversity/UK/UniversityofCentralLancashire.jpg",
         imagin:"https://leverageedunew.s3.amazonaws.com/leverage-finance/link.png",
         title:"University of Central Lancashire",
@@ -552,7 +542,7 @@ const data =[
        
     },
     {
-        id:55,
+        id:54,
         image:"https://megamindonline.com/static/media/alluniversity/UK/UniversityofChester.jpg",
         imagin:"https://leverageedunew.s3.amazonaws.com/leverage-finance/link.png",
         title:"University of Chester",
@@ -562,7 +552,7 @@ const data =[
        
     },
     {
-        id:56,
+        id:55,
         image:"https://megamindonline.com/static/media/alluniversity/UK/UniversityofEastLondon.jpg",
         imagin:"https://leverageedunew.s3.amazonaws.com/leverage-finance/link.png",
         title:"University of East London",
@@ -572,7 +562,7 @@ const data =[
        
     },
     {
-        id:57,
+        id:56,
         image:"https://megamindonline.com/static/media/alluniversity/UK/UniversityofEssex.jpg",
         imagin:"https://leverageedunew.s3.amazonaws.com/leverage-finance/link.png",
         title:"University of Essex",
@@ -582,7 +572,7 @@ const data =[
        
     },
     {
-        id:58,
+        id:57,
         image:"https://megamindonline.com/static/media/alluniversity/UK/UniversityofGreenwich.jpg",
         imagin:"https://leverageedunew.s3.amazonaws.com/leverage-finance/link.png",
         title:"University of Greenwich",
@@ -592,7 +582,7 @@ const data =[
        
     },
     {
-        id:59,
+        id:58,
         image:"https://megamindonline.com/static/media/alluniversity/UK/UniversityofLiverpool.jpg",
         imagin:"https://leverageedunew.s3.amazonaws.com/leverage-finance/link.png",
         title:"University of Liverpool",
@@ -603,7 +593,7 @@ const data =[
     },
 
     {
-        id:60,
+        id:59,
         image:"https://megamindonline.com/static/media/alluniversity/UK/UniversityofUlster.jpg",
         imagin:"https://leverageedunew.s3.amazonaws.com/leverage-finance/link.png",
         title:"University of Ulster",
@@ -614,7 +604,7 @@ const data =[
     },
 
     {
-        id:61,
+        id:60,
         image:"https://megamindonline.com/static/media/alluniversity/UK/UniversityofWestLondon.jpg",
         imagin:"https://leverageedunew.s3.amazonaws.com/leverage-finance/link.png",
         title:"University of West London",
@@ -625,7 +615,7 @@ const data =[
     },
 
     {
-        id:62,
+        id:61,
         image:"https://megamindonline.com/static/media/alluniversity/UK/UniversityofWestScotland(UWS).jpg",
         imagin:"https://leverageedunew.s3.amazonaws.com/leverage-finance/link.png",
         title:"University of West Scotland",
@@ -636,7 +626,7 @@ const data =[
     },
 
     {
-        id:63,
+        id:62,
         image:"https://megamindonline.com/static/media/alluniversity/UK/UniversityofWolverhampton.jpg",
         imagin:"https://leverageedunew.s3.amazonaws.com/leverage-finance/link.png",
         title:"University of Wolverhampton",
@@ -648,7 +638,7 @@ const data =[
 
 
     {
-        id:64,
+        id:63,
         image:"https://megamindonline.com/static/media/alluniversity/Germany/BerlinSchoolofBusinessandInnovation.jpg",
         imagin:"https://leverageedunew.s3.amazonaws.com/leverage-finance/link.png",
         title:"BS of Business and Innovation",
@@ -657,7 +647,7 @@ const data =[
         category:"Germany",   
     },
     {
-        id:65,
+        id:64,
         image:"https://megamindonline.com/static/media/alluniversity/Germany/EUBusinessSchool.jpg",
         imagin:"https://leverageedunew.s3.amazonaws.com/leverage-finance/link.png",
         title:"EU Business School",
@@ -666,7 +656,7 @@ const data =[
         category:"Germany",   
     },
     {
-        id:66,
+        id:65,
         image:"https://megamindonline.com/static/media/alluniversity/Germany/EURASIAInstituteBerlin.jpg",
         imagin:"https://leverageedunew.s3.amazonaws.com/leverage-finance/link.png",
         title:"EURASIA Institute Berlin",
@@ -675,7 +665,7 @@ const data =[
         category:"Germany",   
     },
     {
-        id:67,
+        id:66,
         image:"https://megamindonline.com/static/media/alluniversity/Germany/GISMAHochschule.jpg",
         imagin:"https://leverageedunew.s3.amazonaws.com/leverage-finance/link.png",
         title:"GISMA Hochschule",
@@ -684,7 +674,7 @@ const data =[
         category:"Germany",   
     },
     {
-        id:68,
+        id:67,
         image:"https://megamindonline.com/static/media/alluniversity/Germany/IFSGermanyGmbH.jpg",
         imagin:"https://leverageedunew.s3.amazonaws.com/leverage-finance/link.png",
         title:"IFS Germany GmbH & Co. KG",
@@ -693,7 +683,7 @@ const data =[
         category:"Germany",   
     },
     {
-        id:69,
+        id:68,
         image:"https://megamindonline.com/static/media/alluniversity/Germany/InternationalSchoolofManagementISM.jpg",
         imagin:"https://leverageedunew.s3.amazonaws.com/leverage-finance/link.png",
         title:"International School of Management ISM",
@@ -702,7 +692,7 @@ const data =[
         category:"Germany",   
     },
     {
-        id:70,
+        id:69,
         image:"https://megamindonline.com/static/media/alluniversity/Germany/iSLLanguageSchool.jpg",
         imagin:"https://leverageedunew.s3.amazonaws.com/leverage-finance/link.png",
         title:"iSL Language School",
@@ -711,7 +701,7 @@ const data =[
         category:"Germany",   
     },
     {
-        id:71,
+        id:70,
         image:"https://megamindonline.com/static/media/alluniversity/Germany/IUBH.jpg",
         imagin:"https://leverageedunew.s3.amazonaws.com/leverage-finance/link.png",
         title:"IUBH",
@@ -722,15 +712,6 @@ const data =[
 
     {
         id:72,
-        image:"https://megamindonline.com/static/media/alluniversity/Germany/Megamind.jpg",
-        imagin:"https://leverageedunew.s3.amazonaws.com/leverage-finance/link.png",
-        title:"Megamind",
-        subdescription:"Megamind",
-        description:"Germany",
-        category:"Germany",   
-    },
-    {
-        id:73,
         image:"https://megamindonline.com/static/media/alluniversity/Germany/MarcomediaUniversity.jpg",
         imagin:"https://leverageedunew.s3.amazonaws.com/leverage-finance/link.png",
         title:"Marcomedia University",
@@ -739,7 +720,7 @@ const data =[
         category:"Germany",   
     },
     {
-        id:74,
+        id:73,
         image:"https://megamindonline.com/static/media/alluniversity/Germany/MunichBusinessSchool.jpg",
         imagin:"https://leverageedunew.s3.amazonaws.com/leverage-finance/link.png",
         title:"Munich Business School",
@@ -748,7 +729,7 @@ const data =[
         category:"Germany",   
     },
     {
-        id:75,
+        id:74,
         image:"https://megamindonline.com/static/media/alluniversity/Germany/SRHHochschuleBerlin.jpg",
         imagin:"https://leverageedunew.s3.amazonaws.com/leverage-finance/link.png",
         title:"SRH Hochschule Berlin",
@@ -757,7 +738,7 @@ const data =[
         category:"Germany",   
     },
     {
-        id:76,
+        id:75,
         image:"https://megamindonline.com/static/media/alluniversity/Germany/SteinbeisUniversityBerlin.jpg",
         imagin:"https://leverageedunew.s3.amazonaws.com/leverage-finance/link.png",
         title:"Steinbeis University, Berlin",
@@ -766,7 +747,7 @@ const data =[
         category:"Germany",   
     },
     {
-        id:77,
+        id:76,
         image:"https://megamindonline.com/static/media/alluniversity/Germany/UE-UniversityofAppliedSciences.jpg",
         imagin:"https://leverageedunew.s3.amazonaws.com/leverage-finance/link.png",
         title:"UE of Applied Sciences",
@@ -776,7 +757,7 @@ const data =[
     },
 
     {
-        id:78,
+        id:77,
         image:"https://megamindonline.com/static/media/alluniversity/Germany/TheUniversityofLaw.jpg",
         imagin:"https://leverageedunew.s3.amazonaws.com/leverage-finance/link.png",
         title:"The University of Law",
@@ -785,7 +766,7 @@ const data =[
         category:"Germany",   
     },
     {
-        id:79,
+        id:78,
         image:"https://megamindonline.com/static/media/alluniversity/Ireland/DublinBusinessSchool.jpg",
         imagin:"https://leverageedunew.s3.amazonaws.com/leverage-finance/link.png",
         title:"Dublin Business School",
@@ -794,7 +775,7 @@ const data =[
         category:"Ireland",   
     },
     {
-        id:80,
+        id:79,
         image:"https://megamindonline.com/static/media/alluniversity/Ireland/DundalkInstituteofTechnology.jpg",
         imagin:"https://leverageedunew.s3.amazonaws.com/leverage-finance/link.png",
         title:"Dundalk Institute of Technology",
@@ -803,7 +784,7 @@ const data =[
         category:"Ireland",   
     },
     {
-        id:81,
+        id:80,
         image:"https://megamindonline.com/static/media/alluniversity/Ireland/GalwayMayoInstituteofTechnology.jpg",
         imagin:"https://leverageedunew.s3.amazonaws.com/leverage-finance/link.png",
         title:"Galway Mayo Institute of Technology",
@@ -812,7 +793,7 @@ const data =[
         category:"Ireland",   
     },
     {
-        id:82,
+        id:81,
         image:"https://megamindonline.com/static/media/alluniversity/Ireland/GriffithCollegeDublin.jpg",
         imagin:"https://leverageedunew.s3.amazonaws.com/leverage-finance/link.png",
         title:"Griffith College Dublin",
@@ -821,7 +802,7 @@ const data =[
         category:"Ireland",   
     },
     {
-        id:83,
+        id:82,
         image:"https://megamindonline.com/static/media/alluniversity/Ireland/InstituteofTechnologyTralee.jpg",
         imagin:"https://leverageedunew.s3.amazonaws.com/leverage-finance/link.png",
         title:"Institute of Technology, Tralee",
@@ -830,7 +811,7 @@ const data =[
         category:"Ireland",   
     },
     {
-        id:84,
+        id:83,
         image:"https://megamindonline.com/static/media/alluniversity/Ireland/NationalUniversityofIrelandGalway.jpg",
         imagin:"https://leverageedunew.s3.amazonaws.com/leverage-finance/link.png",
         title:"National University of Ireland, Galway",
@@ -839,7 +820,7 @@ const data =[
         category:"Ireland",   
     },
     {
-        id:85,
+        id:84,
         image:"https://megamindonline.com/static/media/alluniversity/Ireland/NationalUniversityofIrelandMaynooth.jpg",
         imagin:"https://leverageedunew.s3.amazonaws.com/leverage-finance/link.png",
         title:"National University of Ireland, Maynooth",
@@ -849,7 +830,7 @@ const data =[
     },
 
     {
-        id:86,
+        id:85,
         image:"https://megamindonline.com/static/media/alluniversity/Ireland/TrinityCollegeDublin.jpg",
         imagin:"https://leverageedunew.s3.amazonaws.com/leverage-finance/link.png",
         title:"Trinity College Dublin",
@@ -859,7 +840,7 @@ const data =[
     },
 
     {
-        id:87,
+        id:86,
         image:"https://megamindonline.com/static/media/alluniversity/Ireland/UniversityCollegeCork.jpg",
         imagin:"https://leverageedunew.s3.amazonaws.com/leverage-finance/link.png",
         title:"University College Cork",
@@ -868,7 +849,7 @@ const data =[
         category:"Ireland",   
     },
     {
-        id:88,
+        id:87,
         image:"https://megamindonline.com/static/media/alluniversity/Ireland/UniversityCollegeDublin.jpg",
         imagin:"https://leverageedunew.s3.amazonaws.com/leverage-finance/link.png",
         title:"University College Dublin",
@@ -878,7 +859,7 @@ const data =[
     },
 
     {
-        id:89,
+        id:88,
         image:"https://megamindonline.com/static/media/alluniversity/Australia/UniversityofTechnologySydney.jpg",
         imagin:"https://leverageedunew.s3.amazonaws.com/leverage-finance/link.png",
         title:"University of Technology Sydney",
@@ -889,7 +870,7 @@ const data =[
     },
 
     {
-        id:90,
+        id:89,
         image:"https://megamindonline.com/static/media/alluniversity/Australia/MacquarieUniversity.jpg",
         imagin:"https://leverageedunew.s3.amazonaws.com/leverage-finance/link.png",
         title:"Macquarie University",
@@ -900,7 +881,7 @@ const data =[
     },
 
     {
-        id:91,
+        id:90,
         image:"https://megamindonline.com/static/media/alluniversity/Australia/WesternSydneyUniversity.jpg",
         imagin:"https://leverageedunew.s3.amazonaws.com/leverage-finance/link.png",
         title:"Western Sydney University",
@@ -911,7 +892,7 @@ const data =[
     },
 
     {
-        id:92,
+        id:91,
         image:"https://megamindonline.com/static/media/alluniversity/Australia/UniversityofWollongong.jpg",
         imagin:"https://leverageedunew.s3.amazonaws.com/leverage-finance/link.png",
         title:"University of Wollongong",
@@ -922,7 +903,7 @@ const data =[
     },
 
     {
-        id:93,
+        id:92,
         image:"https://megamindonline.com/static/media/alluniversity/Australia/CharlesSturtUniversity.jpg",
         imagin:"https://leverageedunew.s3.amazonaws.com/leverage-finance/link.png",
         title:"Charles Sturt University",
@@ -933,7 +914,7 @@ const data =[
     },
 
     {
-        id:94,
+        id:93,
         image:"https://megamindonline.com/static/media/alluniversity/Australia/SouthernCrossUniversity.jpg",
         imagin:"https://leverageedunew.s3.amazonaws.com/leverage-finance/link.png",
         title:"Southern Cross University",
@@ -944,7 +925,7 @@ const data =[
     },
 
     {
-        id:95,
+        id:94,
         image:"https://megamindonline.com/static/media/alluniversity/Australia/AustralianCatholicUniversity.jpg",
         imagin:"https://leverageedunew.s3.amazonaws.com/leverage-finance/link.png",
         title:"Australian Catholic University",
@@ -955,7 +936,7 @@ const data =[
     },
 
     {
-        id:96,
+        id:95,
         image:"https://megamindonline.com/static/media/alluniversity/Australia/UniversityofNewcastle.jpg",
         imagin:"https://leverageedunew.s3.amazonaws.com/leverage-finance/link.png",
         title:"University of Newcastle",
@@ -966,7 +947,7 @@ const data =[
     },
 
     {
-        id:97,
+        id:96,
         image:"https://megamindonline.com/static/media/alluniversity/Australia/UniversityofNewEngland.jpg",
         imagin:"https://leverageedunew.s3.amazonaws.com/leverage-finance/link.png",
         title:"University of New England",
@@ -977,7 +958,7 @@ const data =[
     },
 
     {
-        id:98,
+        id:97,
         image:"https://megamindonline.com/static/media/alluniversity/Australia/UniversityofMelbourne–GO8.jpg",
         imagin:"https://leverageedunew.s3.amazonaws.com/leverage-finance/link.png",
         title:"University of Melbourne–GO8",
@@ -988,7 +969,7 @@ const data =[
     },
 
     {
-        id:99,
+        id:98,
         image:"https://megamindonline.com/static/media/alluniversity/Australia/MonashUniversity–GO8.jpg",
         imagin:"https://leverageedunew.s3.amazonaws.com/leverage-finance/link.png",
         title:"Monash University – GO8",
@@ -999,7 +980,7 @@ const data =[
     },
 
     {
-        id:100,
+        id:99,
         image:"https://megamindonline.com/static/media/alluniversity/Australia/LaTrobeUniversity.jpg",
         imagin:"https://leverageedunew.s3.amazonaws.com/leverage-finance/link.png",
         title:"La Trobe University",
@@ -1010,7 +991,7 @@ const data =[
     },
 
     {
-        id:101,
+        id:100,
         image:"https://megamindonline.com/static/media/alluniversity/Australia/DeakinUniversity.jpg",
         imagin:"https://leverageedunew.s3.amazonaws.com/leverage-finance/link.png",
         title:"Deakin University",
@@ -1021,7 +1002,7 @@ const data =[
     },
 
     {
-        id:102,
+        id:101,
         image:"https://megamindonline.com/static/media/alluniversity/Australia/RoyalMelbourneInstituteofTechnology.jpg",
         imagin:"https://leverageedunew.s3.amazonaws.com/leverage-finance/link.png",
         title:"Royal Melbourne Institute of Technology",
@@ -1032,7 +1013,7 @@ const data =[
     },
 
     {
-        id:103,
+        id:102,
         image:"https://megamindonline.com/static/media/alluniversity/Australia/VictoriaUniversity.jpg",
         imagin:"https://leverageedunew.s3.amazonaws.com/leverage-finance/link.png",
         title:"Victoria University",
@@ -1043,7 +1024,7 @@ const data =[
     },
 
     {
-        id:104,
+        id:103,
         image:"https://megamindonline.com/static/media/alluniversity/Australia/SwinburneUniversityoftechnology.jpg",
         imagin:"https://leverageedunew.s3.amazonaws.com/leverage-finance/link.png",
         title:"Swinburne University of technology",
@@ -1055,7 +1036,7 @@ const data =[
 
 
     {
-        id:106,
+        id:104,
         image:"https://megamindonline.com/static/media/alluniversity/Australia/UniversityofDivinity.jpg",
         imagin:"https://leverageedunew.s3.amazonaws.com/leverage-finance/link.png",
         title:"University of Divinity",
@@ -1065,7 +1046,7 @@ const data =[
        
     },
     {
-        id:107,
+        id:105,
         image:"https://megamindonline.com/static/media/alluniversity/Australia/FederationUniversityAustralia.jpg",
         imagin:"https://leverageedunew.s3.amazonaws.com/leverage-finance/link.png",
         title:"Federation University Australia",
@@ -1075,7 +1056,7 @@ const data =[
        
     },
     {
-        id:108,
+        id:106,
         image:"https://megamindonline.com/static/media/alluniversity/Australia/UniversityofSydney–GO8.jpg",
         imagin:"https://leverageedunew.s3.amazonaws.com/leverage-finance/link.png",
         title:"University of Sydney – GO8",
@@ -1086,7 +1067,7 @@ const data =[
     },
 
     {
-        id:109,
+        id:107,
         image:"https://megamindonline.com/static/media/alluniversity/Australia/CICHigherEducation.jpg",
         imagin:"https://leverageedunew.s3.amazonaws.com/leverage-finance/link.png",
         title:"CIC Higher Education",
