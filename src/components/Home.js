@@ -35,12 +35,13 @@ class Home extends React.Component {
 		return (
 			<>
 				<ArtboardHome />
-				<Abroad/>
+				<Premium />
+				{/* <Abroad/> */}
 				<TabSlider />
 				<StudySlider />
 				<Winning />
 				<Getreal />
-				<Premium />
+				
 				<MapUse />
 				<UniversityPartner />
 				<ClientView />

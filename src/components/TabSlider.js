@@ -90,6 +90,12 @@ const TabSlider = () => {
                   " Megamind made Process so easy for me, in every step they helped me in understanding"
                 }
               </p>
+          
+            
+              {/* <h4 className="fw-bold text-left py-3">Student Name</h4> */}
+              {/* <button aria-label="Go to previous slide" className="react-multiple-carousel__arrow multileft" type="button"></button>
+              <button aria-label="Go to next slide" className="react-multiple-carousel__arrow multiright" type="button"></button> */}
+
               {/* <h2 className="pt-3 fw-medium text-left"> Tilak Gautam </h2>
               <p className="paragraph3 text-left">
                 {"Msc Digital marketing. UWE Bristol"}
@@ -164,6 +170,7 @@ const TabSlider = () => {
 								</div>
 							  )}
 							</Popup>
+              <h4 class="mestd">{st.split(",")[0]}</h4>
 						  </div>
 						</React.Fragment>
 					  ))}
@@ -235,6 +242,7 @@ const TabSlider = () => {
 									</div>
 								  )}
 								</Popup>
+                <h4 class="mestd">{pt.split(",")[0]}</h4>
 							  </div>
 						</React.Fragment>
 					  ))}

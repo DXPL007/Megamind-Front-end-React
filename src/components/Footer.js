@@ -54,7 +54,7 @@ function Footer() {
               <p className="fw-bold p-para pt-2"> Megamind Consultants</p>
               <p className="fw-bold p-para"> info@megamindonline.com</p>
               <p className="fw-bold p-para">
-                2nd Floor, 49 Ring Road, lajpat Nagar-lll,
+                2nd Floor, 49 Ring Road, Lajpat Nagar-lll,
                 <br /> New Delhi-110024, India
               </p>
               <p className="fw-bold p-para"> +91-888-225-5001</p>
@@ -80,9 +80,9 @@ function Footer() {
             <Col sm={6} md={2}>
               <ul className="list-style-none p-0">
                 <li>
-                  <NavLink className="list-style" target="_blank" to="/about" exact>
+                  <a className="list-style" href="/about" exact>
                     {"About Megamind "}
-                  </NavLink>
+                  </a>
                 </li>
 
                 <li>
@@ -236,7 +236,7 @@ function Footer() {
               <ul className="list-style-none p-0">
                 <li>
                   <NavLink className="list-style" to="/">
-                    {"University of West london "}
+                    {"University of West London "}
                   </NavLink>
                 </li>
                 <li>

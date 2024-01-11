@@ -23,7 +23,7 @@ h1,h2,h3,h4,h5,h6{
 
 
 .text-font{
-  font-size: 35px;
+  font-size: 28px;
   line-height: 15px;
   font-weight: 500;
 }
@@ -381,7 +381,7 @@ ul {
 }
 
 .grid-system .grid-box {
-  padding: 20px 20px;
+  padding: 20px 63px;
   border-radius: 22px;
   border: none;
   box-shadow: rgba(149, 157, 165, 0.0) 0px 8px 0px !important;
@@ -395,11 +395,11 @@ ul {
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(6, 5fr);
+  grid-template-columns: repeat(4, 1fr);
 }
 
 .Bg-Back {
-  background-image: url('./images/premium/premiu.gif');
+  background-image: url('./images/premium/travel-world.jpg');
   background-repeat: no-repeat;
   background-attachment: scroll;
   background-position: bottom;
@@ -433,14 +433,43 @@ ul {
 .h-two {
   font-size: 38px;
 }
-.dropdown-menu .nav-link{
 
+.multiright::before {
+  content: "\e825";
 }
 
+.multiright::before {
+  font-size: 20px;
+  color: #fff;
+  display: block;
+  font-family: revicons;
+  text-align: center;
+  z-index: 2;
+  position: relative;
+}
 
+.multileft::before {
+  content: "\e824";
+}
+.multileft::before {
+  font-size: 20px;
+  color: #fff;
+  display: block;
+  font-family: revicons;
+  text-align: center;
+  z-index: 2;
+  position: relative;
+}
+.multileft{
+  left: 13%;
+}
+.card-boxer .img-fluid{
+  border-radius: 12px;
+}
 
-
-
+.multiright{
+  left: 20%;
+}
 /* carousel */
 .media-carousel {
   margin-bottom: 0;
@@ -664,6 +693,16 @@ video {
   border-radius: 10px !important;
 }
 
+@media (min-width:900px) and (max-width:1300px) {
+  .navbar-expand-lg .navbar-nav .nav-link {
+    padding: 7px 9px !important;
+    font-size: 16px !important;
+    font-weight: 500 !important;
+  }
+   }
+
+
+
 @media (min-width: 992px){
 .navbar-expand-lg .navbar-nav {
     justify-content: center !important;
@@ -694,7 +733,7 @@ width:70%
 
 
 .navbar-expand-lg .navbar-nav .nav-link {
-  padding: 7px 14px !important;
+  padding: 7px 14px;
   font-size: 18px;
   font-weight: 500;
 
@@ -856,7 +895,7 @@ width:70%
 }
 
 .webfooter_slideshow__d1IHp .webfooter_images__JoxIN {
-  background: url("./images/btimg.PNG");
+  background: url("./images/btimg.png");
   position: absolute;
   left: 0;
   top: 0;

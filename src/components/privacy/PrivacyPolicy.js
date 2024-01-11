@@ -137,7 +137,7 @@ const Datatransfer = () => {
         <span>Grievance Officer</span><br/>
         <span>Megamind Consultants Pvt. Ltd.</span><br/>
         <span>2nd Floor, 49 Ring Road,</span><br/>
-        <span>lajpat Nagar-lll,</span><br/>
+        <span>Lajpat Nagar-lll,</span><br/>
         <span>New Delhi, Delhi 110024</span><br/>
       </p>
     </div>

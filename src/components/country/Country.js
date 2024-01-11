@@ -6,7 +6,15 @@ import { Link } from "react-router-dom";
 
 import Button from "react-bootstrap/Button";
 import Accordion from "react-bootstrap/Accordion";
-import TeamImage from "../../images/country/team/nameteam.png";
+import TeamImage from "../../images/country/team/2.jpg";
+import TeamImage1 from "../../images/country/team/3.jpg";
+import TeamImage2 from "../../images/country/team/4.jpg";
+import TeamImage3 from "../../images/country/team/5.png";
+import TeamImage4 from "../../images/country/team/6.png";
+import TeamImage5 from "../../images/country/team/7.png";
+import TeamImage6 from "../../images/country/team/8.png";
+import TeamImage7 from "../../images/country/team/9.png";
+
 import LivingImage from "../../images/country/lo-hi.png";
 import Application0 from "../../images/country/icon/applicaton.png";
 import Application1 from "../../images/country/icon/applicaton1.png";
@@ -19,10 +27,6 @@ import CountryA4 from "../../images/country/icon/a4.png";
 import CountryA5 from "../../images/country/icon/a5.png";
 import CountryA6 from "../../images/country/icon/a6.png";
 
-import ApliCheck from "../../images/country/apliactionchecklist.jpg";
-import UGChecklist from "../../images/country/UGChecklist.jpg";
-import PGChecklist from "../../images/country/PGChecklist.jpg";
-import VisaChecklist from "../../images/country/VisaChecklist.jpg";
 import PdfDownloade from "../../images/country/Application-Check-List-UG-A4.pdf";
 
 import "./country.css";
@@ -31,7 +35,16 @@ import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 
 //Axios for get request
 import axios from "axios";
-// import $ from "jquery";
+import $ from "jquery";
+
+// refreshPage page
+
+
+function refreshPage(event) {
+  //alert("refreshPage called.."+$(event.target).attr("href"));	
+  window.location.href=$(event.target).attr("href");
+}
+
 
 function myFunction() {
   var dots = document.getElementById("dots");
@@ -40,11 +53,11 @@ function myFunction() {
 
   if (dots.style.display === "none") {
     dots.style.display = "contents";
-    btnText.innerHTML = "Read more";
+    btnText.innerHTML = "View More";
     moreText.style.display = "none";
   } else {
     dots.style.display = "none";
-    btnText.innerHTML = "Read less";
+    btnText.innerHTML = "View More";
     moreText.style.display = "contents";
   }
 }
@@ -106,7 +119,6 @@ class Country extends React.Component {
                 backgroundImage: "url(" + result.banner + ")",
                 backgroundRepeat: "no-repeat",
                 backgroundAttachment: "scroll",
-                backgroundSize: "contain",
                 backgroundPosition: "center center",
                 backgroundSize: "100%",
               }}
@@ -130,10 +142,10 @@ class Country extends React.Component {
                         {"Get Your Shortlist for free"}
                       </button>
                     </Link>
-                    <Link href="./#enquiry">
+                    <Link href="tel:+918882255001">
                       <button
                         type="submit"
-                        class="px-4 py-2 btn country-mobile btn-secondary btn-white border-0 fw-medium"
+                        class="px-4 py-2 btn country-mobile btn-primary"
                         style={{ fontSize: "14px" }}
                       >
                         {"Talk to an expert "}
@@ -146,14 +158,16 @@ class Country extends React.Component {
                   sm={12}
                   md={7}
                   className="pb-10 countriDisplay"
-                  style={{
-                    // backgroundImage: "url(" + result.banner + ")",
-                    // backgroundRepeat: "no-repeat",
-                    // backgroundAttachment: "scroll",
-                    // backgroundSize: "contain",
-                    // backgroundPosition: "center center",
-                    // backgroundSize: "100%",
-                  }}
+                  style={
+                    {
+                      // backgroundImage: "url(" + result.banner + ")",
+                      // backgroundRepeat: "no-repeat",
+                      // backgroundAttachment: "scroll",
+                      // backgroundSize: "contain",
+                      // backgroundPosition: "center center",
+                      // backgroundSize: "100%",
+                    }
+                  }
                 ></Col>
               </Row>
             </Container>
@@ -357,9 +371,9 @@ class Country extends React.Component {
                       <Tab style={{ background: "#8fd7ca", border: "none" }}>
                         {"Testimonial"}
                       </Tab>
-                      <Tab style={{ background: "#abeecc", border: "none" }}>
+                      {/* <Tab style={{ background: "#abeecc", border: "none" }}>
                         {"Team"}
-                      </Tab>
+                      </Tab> */}
                       <Tab style={{ background: "#b7f5d6", border: "none" }}>
                         {"FAQ"}
                       </Tab>
@@ -372,130 +386,42 @@ class Country extends React.Component {
                       <Tabs>
                         <TabPanel className="pt-0">
                           <div className="d-grid innergr">
-                            <ul className="ul-text toplist">
+
+
+                          <ul className="ul-text toplist">
+                            { result.all_universities_1.split(";").filter(r => r !== '').map((named) => 
+			                      (
                               <li>
-                                <Link className="" to="/university" exact>
-                                  {result.university_list_1}
+                               <Link reloadDocument={true}  className="nav-link"  to={"/university?university_name="+named} onClick={refreshPage}>
+                                {named.split(";")[0]}
                                 </Link>
                               </li>
-                              <li>
-                                <Link className="" to="">
-                                  {result.university_list_2}
-                                </Link>
-                              </li>
-                              <li>
-                                <Link className="" to="">
-                                  {result.university_list_3}
-                                </Link>
-                              </li>
-                              <li>
-                                <Link className="" to="">
-                                  {result.university_list_4}
-                                </Link>
-                              </li>
-                              <li>
-                                <Link className="" to="">
-                                  {result.university_list_5}
-                                </Link>
-                              </li>
-                              <li>
-                                <Link className="" to="">
-                                  {result.university_list_6}
-                                </Link>
-                              </li>
-                              <li>
-                                <Link className="" to="">
-                                  {result.university_list_7}
-                                </Link>
-                              </li>
-                              <li>
-                                <Link className="" to="">
-                                  {result.university_list_8}
-                                </Link>
-                              </li>
-                              <li>
-                                <Link className="" to="">
-                                  {result.university_list_9}
-                                </Link>
-                              </li>
-                              <li>
-                                <Link className="" to="">
-                                  {result.university_list_10}
-                                </Link>
-                              </li>
-                              <li>
-                                <Link className="" to="">
-                                  {result.university_list_11}
-                                </Link>
-                              </li>
-                            </ul>
-                            <ul className="list2 ul-text toplist">
-                              <li>
-                                <Link to="">{result.university_list_12}</Link>
-                              </li>
-                              <li>
-                                <Link to="">{result.university_list_13}</Link>
-                              </li>
-                              <li>
-                                <Link to="">{result.university_list_14}</Link>
-                              </li>
-                              <li>
-                                <Link to="">{result.university_list_15}</Link>
-                              </li>
-                              <li>
-                                <Link to="">{result.university_list_16}</Link>
-                              </li>
-                              <li>
-                                <Link to="">{result.university_list_17}</Link>
-                              </li>
-                              <li>
-                                <Link to="">{result.university_list_18}</Link>
-                              </li>
-                              <li>
-                                <Link to="">{result.university_list_19}</Link>
-                              </li>
-                              <li>
-                                <Link to="">{result.university_list_20}</Link>
-                              </li>
-                              <li>
-                                <Link to="">{result.university_list_21}</Link>
-                              </li>
+                              ))}
+
                             </ul>
                             <ul className="ul-text toplist">
+                            { result.all_universities_2.split(";").filter(r => r !== '').map((named) => 
+			                      (
                               <li>
-                                <Link to="">{result.university_list_22}</Link>
+                                <Link reloadDocument={true}  className="nav-link"  to={"/university?country_name="+result.country+"&university_name="+named} onClick={refreshPage}> 
+                                {named.split(";")[0]}
+                                </Link>
                               </li>
-                              <li>
-                                <Link to="">{result.university_list_23}</Link>
-                              </li>
-                              <li>
-                                <Link to="">{result.university_list_24}</Link>
-                              </li>
-                              <li>
-                                <Link to="">{result.university_list_25}</Link>
-                              </li>
-                              <li>
-                                <Link to="">{result.university_list_26}</Link>
-                              </li>
-                              <li>
-                                <Link to="">{result.university_list_27}</Link>
-                              </li>
-                              <li>
-                                <Link to="">{result.university_list_28}</Link>
-                              </li>
-                              <li>
-                                <Link to="">{result.university_list_29}</Link>
-                              </li>
-                              <li>
-                                <Link to="">{result.university_list_30}</Link>
-                              </li>
-                              <li>
-                                <Link to="">{result.university_list_31}</Link>
-                              </li>
-                              <li>
-                                <Link to="">{result.university_list_32}</Link>
-                              </li>
+                              ))}
+
                             </ul>
+                            <ul className="ul-text toplist">
+                            { result.all_universities_3.split(";").filter(r => r !== '').map((named) => 
+			                      (
+                              <li>
+                               <Link reloadDocument={true}  className="nav-link"  to={"/university?university_name="+named} onClick={refreshPage}>
+                                {named.split(";")[0]}
+                                </Link>
+                              </li>
+                              ))}
+
+                            </ul>
+                            
                           </div>
                         </TabPanel>
                       </Tabs>
@@ -688,107 +614,6 @@ class Country extends React.Component {
                     {/* Testimonial TAB START HERE */
                     /* Testimonial TAB START HERE */}
 
-                    <TabPanel className="pt-2">
-                      <Tabs>
-                        <TabPanel className="pt-0">
-                          <div className="d-grid innergrid2 px-4">
-                            <div class="wrimagecard wrimagecard-topimage Co-Card">
-                              <iframe
-                                width="auto"
-                                height="169"
-                                src="https://www.youtube.com/embed/zvwbPWfa2WQ?rel=0&amp;controls=0&amp;enablejsapi=1&autoplay=0"
-                                title="YouTube video player"
-                                frameborder="0"
-                                allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                                allowfullscreen
-                              ></iframe>
-                            </div>
-
-                            <div class="wrimagecard wrimagecard-topimage Co-Card">
-                              <iframe
-                                width="auto"
-                                height="169"
-                                src="https://www.youtube.com/embed/QJmlkbjjWIo?rel=0&amp;controls=0&amp;enablejsapi=1&autoplay=0"
-                                title="YouTube video player"
-                                frameborder="0"
-                                allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                                allowfullscreen
-                              ></iframe>
-                            </div>
-
-                            <div class="wrimagecard wrimagecard-topimage Co-Card">
-                              <iframe
-                                width="auto"
-                                height="169"
-                                src="https://www.youtube.com/embed/dYSmzC4z6g0?rel=0&amp;controls=0&amp;enablejsapi=1&autoplay=0"
-                                title="YouTube video player"
-                                frameborder="0"
-                                allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                                allowfullscreen
-                              ></iframe>
-                            </div>
-
-                            <div class="wrimagecard wrimagecard-topimage Co-Card">
-                              <iframe
-                                width="auto"
-                                height="169"
-                                src="https://www.youtube.com/embed/AS-QgN5f6SY?rel=0&amp;controls=0&amp;enablejsapi=1&autoplay=0"
-                                title="YouTube video player"
-                                frameborder="0"
-                                allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                                allowfullscreen
-                              ></iframe>
-                            </div>
-
-                            <div class="wrimagecard wrimagecard-topimage Co-Card">
-                              <iframe
-                                width="auto"
-                                height="169"
-                                src="https://www.youtube.com/embed/zYxZSvhBkRw?rel=0&amp;controls=0&amp;enablejsapi=1&autoplay=0"
-                                title="YouTube video player"
-                                frameborder="0"
-                                allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                                allowfullscreen
-                              ></iframe>
-                            </div>
-
-                            <div class="wrimagecard wrimagecard-topimage Co-Card">
-                              <iframe
-                                width="auto"
-                                height="169"
-                                src="https://www.youtube.com/embed/OuqxPEpMyV0?rel=0&amp;controls=0&amp;enablejsapi=1&autoplay=0"
-                                title="YouTube video player"
-                                frameborder="0"
-                                allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                                allowfullscreen
-                              ></iframe>
-                            </div>
-
-                            <span id="dots"></span>
-                            <span id="more">
-                              <div class="wrimagecard wrimagecard-topimage Co-Card">
-                                <iframe
-                                  width="auto"
-                                  height="169"
-                                  src="https://www.youtube.com/embed/lF7XItt1Xx8?rel=0&amp;controls=0&amp;enablejsapi=1&autoplay=0"
-                                  title="YouTube video player"
-                                  frameborder="0"
-                                  allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                                  allowfullscreen
-                                ></iframe>
-                              </div>
-                            </span>
-                          </div>
-                          <button onClick={myFunction} id="myBtn">
-                            Read more
-                          </button>
-                        </TabPanel>
-                      </Tabs>
-                    </TabPanel>
-
-                    {/* TEAM TAB START HERE */
-                    /* TEAM TAB START HERE */}
-
                     <TabPanel className="pt-4">
                       <div className="d-grid innergrid3 px-4">
                         <div class="wrimagecard wrimagecard-topimage">
@@ -801,103 +626,97 @@ class Country extends React.Component {
                               />
                             </center>
                           </div>
-
-                          <Button variant="primary w-100 primy mt-2" size="lg">
-                            Name Here
-                          </Button>
                         </div>
 
                         <div class="wrimagecard wrimagecard-topimage">
                           <div class="wrimagecard-topimage_header p-0">
                             <center>
                               <img
-                                src={TeamImage}
+                                src={TeamImage1}
                                 alt="Application"
                                 width={"100%"}
                               />
                             </center>
                           </div>
-
-                          <Button variant="primary w-100 primy mt-2" size="lg">
-                            {"Name Here"}
-                          </Button>
                         </div>
 
                         <div class="wrimagecard wrimagecard-topimage">
                           <div class="wrimagecard-topimage_header p-0">
                             <center>
                               <img
-                                src={TeamImage}
+                                src={TeamImage2}
                                 alt="Application"
                                 width={"100%"}
                               />
                             </center>
                           </div>
-
-                          <Button variant="primary w-100 primy mt-2" size="lg">
-                            {"Name Here"}
-                          </Button>
                         </div>
 
                         <div class="wrimagecard wrimagecard-topimage">
                           <div class="wrimagecard-topimage_header p-0">
                             <center>
                               <img
-                                src={TeamImage}
+                                src={TeamImage3}
                                 alt="Application"
                                 width={"100%"}
                               />
                             </center>
                           </div>
-
-                          <Button variant="primary w-100 primy mt-2" size="lg">
-                            {"Name Here"}
-                          </Button>
                         </div>
 
-                        <span id="dots"></span>
-                        <span id="more">
-                          <div class="wrimagecard wrimagecard-topimage">
-                            <div class="wrimagecard-topimage_header p-0">
-                              <center>
-                                <img
-                                  src={TeamImage}
-                                  alt="Application"
-                                  width={"100%"}
-                                />
-                              </center>
-                            </div>
-
-                            <Button
-                              variant="primary w-100 primy mt-2"
-                              size="lg"
-                            >
-                              {"Name Here"}
-                            </Button>
+                        {/* <span id="dots"></span>
+                        <span id="more"> */}
+                        <div class="wrimagecard wrimagecard-topimage">
+                          <div class="wrimagecard-topimage_header p-0">
+                            <center>
+                              <img
+                                src={TeamImage4}
+                                alt="Application"
+                                width={"100%"}
+                              />
+                            </center>
                           </div>
-                          <div class="wrimagecard wrimagecard-topimage">
-                            <div class="wrimagecard-topimage_header p-0">
-                              <center>
-                                <img
-                                  src={TeamImage}
-                                  alt="Application"
-                                  width={"100%"}
-                                />
-                              </center>
-                            </div>
-
-                            <Button
-                              variant="primary w-100 primy mt-2"
-                              size="lg"
-                            >
-                              {"Name Here"}
-                            </Button>
+                        </div>
+                        <div class="wrimagecard wrimagecard-topimage">
+                          <div class="wrimagecard-topimage_header p-0">
+                            <center>
+                              <img
+                                src={TeamImage5}
+                                alt="Application"
+                                width={"100%"}
+                              />
+                            </center>
                           </div>
-                        </span>
+                        </div>
+
+                        <div class="wrimagecard wrimagecard-topimage">
+                          <div class="wrimagecard-topimage_header p-0">
+                            <center>
+                              <img
+                                src={TeamImage6}
+                                alt="Application"
+                                width={"100%"}
+                              />
+                            </center>
+                          </div>
+                        </div>
+
+                        <div class="wrimagecard wrimagecard-topimage">
+                          <div class="wrimagecard-topimage_header p-0">
+                            <center>
+                              <img
+                                src={TeamImage7}
+                                alt="Application"
+                                width={"100%"}
+                              />
+                            </center>
+                          </div>
+                        </div>
+                        {/* </span> */}
                       </div>
-                      <button onClick={myFunction} id="myBtn">
-                        Read more
-                      </button>
+                      {/* <button onClick={myFunction} id="myBtn">
+                        View More
+                      </button> */}
                     </TabPanel>
 
                     {/* FAQ TAB START HERE */
@@ -1055,11 +874,6 @@ class Country extends React.Component {
           );
         })}
 
-
-
-
-
-
         {/* MOBILE DESIGN LAYOUTE CODE HERE */}
 
         {this.state.data.map((result) => {
@@ -1078,64 +892,69 @@ class Country extends React.Component {
                         <div className="d-grid innergr">
                           <ul className="ul-text toplist">
                             <li>
-                            <Link className="" to="/university" exact target="_blank">
-                               {result.university_list_1}
+                              <Link
+                                className=""
+                                to="/university"
+                                exact
+                                target="_blank"
+                              >
+                                {result.university_list_1}
                               </Link>
                             </li>
                             <li>
                               <Link className="" to="">
-                              {result.university_list_2}
+                                {result.university_list_2}
                               </Link>
                             </li>
                             <li>
                               <Link className="" to="">
-                              {result.university_list_3}
+                                {result.university_list_3}
                               </Link>
                             </li>
                             <li>
                               <Link className="" to="">
-                              {result.university_list_4}
+                                {result.university_list_4}
                               </Link>
                             </li>
                             <li>
                               <Link className="" to="">
-                              {result.university_list_5}
+                                {result.university_list_5}
                               </Link>
                             </li>
                             <li>
                               <Link className="" to="">
-                              {result.university_list_6}
+                                {result.university_list_6}
                               </Link>
                             </li>
                             <li>
                               <Link className="" to="">
-                              {result.university_list_7}
+                                {result.university_list_7}
                               </Link>
                             </li>
                             <li>
                               <Link className="" to="">
-                              {result.university_list_8}
+                                {result.university_list_8}
                               </Link>
                             </li>
                             <li>
                               <Link className="" to="">
-                              {result.university_list_9}
+                                {result.university_list_9}
                               </Link>
                             </li>
                             <li>
                               <Link className="" to="">
-                              {result.university_list_10}
+                                {result.university_list_10}
                               </Link>
                             </li>
                             <li>
                               <Link className="" to="">
-                              {result.university_list_11}
+                                {result.university_list_11}
                               </Link>
                             </li>
 
                             <span id="dots"></span>
                             <span id="more">
-                            <li>
+                              <li>
                                 <Link to="">{result.university_list_12}</Link>
                               </li>
                               <li>

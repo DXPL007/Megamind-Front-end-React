@@ -62,7 +62,7 @@ function ArtboardHome() {
     <>
     
       <Container className="Bg-Home" fluid>
-        <Row className="py-5" style={{ width: "80%", margin: "auto" }}>
+        <Row className="py-5" style={{ width: "80%", margin: "auto" }} id="enquiry">
           <Col sm={12} md={4}>
             <h2 className="text-left display-8 fw-light text-black">
               {" Your Study  "}
@@ -160,7 +160,7 @@ function ArtboardHome() {
           </Col>
 
           <Col sm={12} md={4}>
-            <div className="card-boxx m-3" id="enquiry">
+            <div className="card-boxx m-3">
               <h4 className="text-center fw-thin">Enquiry Now </h4>
               <Form className="py-3"  method="Post">
                 <div class="form-group">
@@ -197,7 +197,7 @@ function ArtboardHome() {
                 <div class="form-group">
                   <PhoneInput
                     className="form-control"
-					id="mobile_no"
+					         id="mobile_no"
                     placeholder="Enter phone number"
                     value={value}
                     onChange={setValue}

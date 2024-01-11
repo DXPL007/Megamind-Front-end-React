@@ -106,6 +106,7 @@ function Header() {
   			    <NavLink className="nav-link" to="/financeservices" exact style={({ isActive }) => ({ color: isActive ? '#0693e3' : 'black' })}>Financial Services</NavLink>
                 <NavLink className="nav-link" to="/contact" exact style={({ isActive }) => ({ color: isActive ? '#0693e3' : 'black' })}>Contact Us</NavLink>
                 <NavLink className="nav-link" to="/blog" style={({ isActive }) => ({ color: isActive ? '#0693e3' : 'black' })}>Blogs</NavLink>
+                <NavLink className="nav-link" to="https://megamindonline.com/course-finder" target="_blank" style={({ isActive }) => ({ color: isActive ? '#0693e3' : 'black' })}>Course Finder</NavLink>
               
                 </Nav>
                 <Form className="d-flex align-items-center">

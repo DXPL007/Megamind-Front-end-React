@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from 'react';
+import emailjs from '@emailjs/browser';
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
@@ -12,6 +13,22 @@ import ClientView from "../ClientView";
 
 function Contact() {
   const [value, setValue] = useState();
+
+  const form = useRef();
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    emailjs.sendForm('service_8b102k6', 'template_hicgsvv', form.current, 'BtddOTkC2IjvFqF4O')
+      .then((result) => {
+          console.log(result.text);
+          console.log("Message Sent Successfully");
+          alert('Thank you for filling out your information!');
+          window.location.reload();
+      }, (error) => {
+          console.log(error.text);
+      });
+  };
 
   return (
     <>
@@ -36,16 +53,13 @@ function Contact() {
               <Col sm={12} md={5}>
                 <div className="conatct-boxx m-3" id="enquiry">
                   <h2 className="text-center fw-bold"> Contact Form </h2>
-                  <Form
-                    className="py-3"
-                    onSubmit="return confirm('Do you want to submit?') "
-                    method="Get"
-                  >
+                  <Form className="py-3" ref={form} onSubmit={sendEmail}>
                     <div class="form-group">
                       <input
                         type="text"
                         class="form-control"
-                        id="inlineFormInputName"
+                        id="to_name"
+                        name='to_name'
                         placeholder="Enter Your Name"
                         required
                       />
@@ -55,10 +69,12 @@ function Contact() {
                       <PhoneInput
                         className="form-control"
                         placeholder="Contact No"
+                        id="to_contact"
                         value={value}
                         onChange={setValue}
-                        defaultCountry="IN"
+                        defaultCountry=""
                         rules={{ required: true }}
+                        name='to_contact'
                         required
                       />
                     </div>
@@ -67,7 +83,8 @@ function Contact() {
                       <input
                         type="email"
                         class="form-control"
-                        id="exampleInputEmail1"
+                        id="to_email"
+                        name='to_email'
                         aria-describedby="emailHelp"
                         placeholder="Email Id"
                         required
@@ -76,6 +93,18 @@ function Contact() {
 
                     <Row>
                       <Col sm={12} md={6} className="">
+
+                      <div class="form-group">
+                      <input
+                        type="text"
+                        class="form-control"
+                        name='to_city'
+                        id="to_city"
+                        placeholder="City Name"
+                        required
+                      />
+                    </div>
+{/* 
                         <div class="form-group">
                           <select class="custom-select form-control" required>
                             <option value="">City</option>
@@ -86,10 +115,20 @@ function Contact() {
                           <div class="invalid-feedback">
                             Example invalid custom select feedback
                           </div>
-                        </div>
+                        </div> */}
                       </Col>
                       <Col sm={12} md={6} className="">
-                        <div class="form-group">
+                      <div class="form-group">
+                      <input
+                        type="text"
+                        name='to_state'
+                        class="form-control"
+                        id="to_state"
+                        placeholder="State Name"
+                        required
+                      />
+                    </div>
+                        {/* <div class="form-group">
                           <select class="custom-select form-control" required>
                             <option value="">State</option>
                             <option value="1">One</option>
@@ -99,14 +138,13 @@ function Contact() {
                           <div class="invalid-feedback">
                             Example invalid custom select feedback
                           </div>
-                        </div>
+                        </div> */}
                       </Col>
                       <Col sm={12} md={12} className="">
                         <div class="form-check">
                           <input
                             class="form-check-input"
                             type="checkbox"
-                            value=""
                             id="defaultCheck1"
                           />
                           <label class="form-check-label" for="defaultCheck1">

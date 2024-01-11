@@ -25,7 +25,7 @@ function Winning() {
 							<ul className="list-style-none">
                             <li className="text-center">  
                               <img src={Winning0} className="w-100 pb-3" alt="logo" />
-                              <p className="text-font">15 K+</p>
+                              <p className="text-font">75 K+</p>
                                     <h5>Successful Admits</h5>
                               </li>
 				

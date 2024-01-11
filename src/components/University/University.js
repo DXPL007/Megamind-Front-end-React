@@ -44,11 +44,17 @@ class University extends React.Component {
         
 		const search = window.location.search;
 		const query = new URLSearchParams(search);
-		const code = query.get('code');
-		console.log("code="+code);
+		const university_name = query.get('university_name');
+		console.log("university_name="+university_name);
+
+//COUNTRY NAME
+const country_name = query.get('country_name');
+console.log("country_name="+country_name);
+
+
 		//let { code } = this.props.params.code;
 		//console.log({code});
-        var geturl = 'https://megamindonline.com/admin/webmanager/controller.php?command=GET_UNIVERSITY_COURSE_DETAILS&country=CANADA&college_university=Algonquin%20College';
+        var geturl = 'https://megamindonline.com/admin/webmanager/controller.php?command=GET_UNIVERSITY_COURSE_DETAILS&country=' + country_name + '&college_university=' + university_name;
 		console.log("geturl="+geturl);
 		//get request
         axios.get(geturl).then(res => 
@@ -157,7 +163,7 @@ class University extends React.Component {
           </Col>
           <Col sm={12} md={6} className="university-sec">
             <div className="Study-wa">
-              <h2 className="display-6"> Why Algonquin College ? </h2>
+              <h2 className="display-6"> Why {result.college_university} ? </h2>
               <ul className="list-no pt-4">
                 <li className="d-flex align-items-start">
                   <img

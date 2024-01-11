@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
+import emailjs from '@emailjs/browser';
 import Container from "react-bootstrap/Container";
 import { Link } from "react-router-dom";
 import Row from "react-bootstrap/Row";
@@ -7,6 +8,7 @@ import "./finance.css";
 import "react-phone-number-input/style.css";
 import PhoneInput from "react-phone-number-input";
 import Form from "react-bootstrap/Form";
+import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import FirstImage1 from "../../images/finance/first1.png";
 import FirstImage2 from "../../images/finance/first2.png";
 import FirstImage3 from "../../images/finance/first3.png";
@@ -15,17 +17,53 @@ import FirstImage5 from "../../images/finance/first5.png";
 import FirstImage6 from "../../images/finance/first6.png";
 import FormImager from "../../images/finance/formemial.png";
 import ImageEmi from "../../images/finance/ghfdh.png";
-// import Carousel from "react-multi-carousel";
+import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import Accordion from "react-bootstrap/Accordion";
-import Tsstmonial from "./Tsstmonial";
 import ClientView from "../ClientView";
+
+
+
+
 
 function FinanceServices() {
   // Form code Start
   const [value, setValue] = useState();
+  const responsive = {
+    superLargeDesktop: {
+      // the naming can be any, depends on you.
+      breakpoint: { max: 4000, min: 3000 },
+      items: 3,
+    },
+    desktop: {
+      breakpoint: { max: 3000, min: 1024 },
+      items: 3,
+    },
+    tablet: {
+      breakpoint: { max: 1024, min: 464 },
+      items: 2,
+    },
+    mobile: {
+      breakpoint: { max: 464, min: 0 },
+      items: 2,
+    },
+  };
 
   // Form code end
+  const form = useRef();
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    emailjs.sendForm('service_b8e209k', 'template_5y8dn5w', form.current, 'CGZSsii0ceT-gxRzI')
+      .then((result) => {
+          console.log(result.text);
+          alert("Thank you for filling out your information!");
+       window.location.reload();
+      }, (error) => {
+          console.log(error.text);
+      });
+  };
   // the naming can be any, depends on you.
 
   return (
@@ -95,7 +133,7 @@ function FinanceServices() {
             <div class="box-part box-layou text-left px-5 py-4">
               <img src={FirstImage2} alt="most" />
               <div class="title pt-2 custom-border2">
-                <h5>Entirely Digital</h5>
+                <h5>E-Banking</h5>
               </div>
               <div class="text pb-3">
                 <small>
@@ -218,186 +256,8 @@ function FinanceServices() {
         </Row>
       </Container>
 
-      <Container className="pb-5" fluid>
-        <Row className="pt-5 pb-5" style={{ width: "90%", margin: "auto" }}>
-          <Col sm={12} md={12} className="text-center pb-3">
-            <h2 className="display-6 fw-medium text-black">
-              <strong style={{ color: "#006bb9" }}>TESTIMONIALS </strong>
-            </h2>
-          </Col>
 
-          <Col sm={12} md={12} className="text-right">
-            <Tsstmonial />
-            {/* <Carousel
-              responsive={responsive}
-              additionalTransfrom={80}
-              arrows
-              autoPlay
-              autoPlaySpeed={4000}
-              centerMode={false}
-              className=""
-              containerClass="container-with-dots innertslide"
-              dotListClass=""
-              draggable
-              focusOnSelect={false}
-              infinite
-              itemClass=""
-              keyBoardControl
-              minimumTouchDrag={100}
-              pauseOnHover
-              renderArrowsWhenDisabled={false}
-              renderButtonGroupOutside={false}
-              renderDotsOutside={false}
-              rewind={false}
-              rewindWithAnimation={false}
-              rtl={false}
-              shouldResetAutoplay
-              showDots={false}
-              sliderClass="back-button"
-              slidesToSlide={1}
-              swipeable
-            >
-              <div className="card-boxer">
-                <div class="testi">
-                  <div class="testimonial">
-                    <p>
-                      {
-                        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor  incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo  viverra maecenas accumsan lacus vel facilisis. "
-                      }
-                    </p>
-                  </div>
-                  <div class="media med">
-                    <img src={FirstImage1} alt="most" />
-                    <div class="media-body">
-                      <div class="overview">
-                        <div class="name text-white">
-                          <b>{"Harish Kumar"}</b>
-                        </div>
-                        <div class="details">{"University Name"}</div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
 
-              <div className="card-boxer">
-                <div class="testi">
-                  <div class="testimonial">
-                    <p>
-                      {
-                        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor  incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo  viverra maecenas accumsan lacus vel facilisis. "
-                      }
-                    </p>
-                  </div>
-                  <div class="media med">
-                    <img src={FirstImage1} alt="most" />
-                    <div class="media-body">
-                      <div class="overview">
-                        <div class="name text-white">
-                          <b>{"Harish Kumar"}</b>
-                        </div>
-                        <div class="details">{"University Name"}</div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div className="card-boxer">
-                <div class="testi">
-                  <div class="testimonial">
-                    <p>
-                      {
-                        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor  incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo  viverra maecenas accumsan lacus vel facilisis. "
-                      }
-                    </p>
-                  </div>
-                  <div class="media med">
-                    <img src={FirstImage1} alt="most" />
-                    <div class="media-body">
-                      <div class="overview">
-                        <div class="name text-white">
-                          <b>{"Harish Kumar"}</b>
-                        </div>
-                        <div class="details">{"University Name"}</div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div className="card-boxer">
-                <div class="testi">
-                  <div class="testimonial">
-                    <p>
-                      {
-                        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor  incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo  viverra maecenas accumsan lacus vel facilisis. "
-                      }
-                    </p>
-                  </div>
-                  <div class="media med">
-                    <img src={FirstImage1} alt="most" />
-                    <div class="media-body">
-                      <div class="overview">
-                        <div class="name text-white">
-                          <b>{"Harish Kumar"}</b>
-                        </div>
-                        <div class="details">{"University Name"}</div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div className="card-boxer ">
-                <div class="testi">
-                  <div class="testimonial">
-                    <p>
-                      {
-                        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor  incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo  viverra maecenas accumsan lacus vel facilisis. "
-                      }
-                    </p>
-                  </div>
-                  <div class="media med">
-                    <img src={FirstImage1} alt="most" />
-                    <div class="media-body">
-                      <div class="overview">
-                        <div class="name text-white">
-                          <b>{"Harish Kumar"}</b>
-                        </div>
-                        <div class="details">{"University Name"}</div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div className="card-boxer">
-                <div class="testi">
-                  <div class="testimonial">
-                    <p>
-                      {
-                        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor  incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo  viverra maecenas accumsan lacus vel facilisis. "
-                      }
-                    </p>
-                  </div>
-                  <div class="media med">
-                    <img src={FirstImage1} alt="most" />
-                    <div class="media-body">
-                      <div class="overview">
-                        <div class="name text-white">
-                          <b>{"Harish Kumar"}</b>
-                        </div>
-                        <div class="details">{"University Name"}</div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </Carousel> */}
-          </Col>
-        </Row>
-      </Container>
 
       <Container className="pb-5 aacurdin-bg" fluid>
         <Row className="pt-5 pb-5" style={{ width: "70%", margin: "auto" }}>
@@ -692,16 +552,13 @@ function FinanceServices() {
               </strong>
             </h2>
 
-            <Form
-              className="py-3"
-              onSubmit="return confirm('Do you want to submit?') "
-              method="Get"
-            >
+            <Form ref={form} onSubmit={sendEmail}>
               <Row>
                 <div class="form-group">
                   <input
                     type="text"
-                    class="form-view"
+                    className="form-view"
+                    name="username"
                     id="inlineFormInputName"
                     placeholder="Full Name"
                     required
@@ -710,7 +567,8 @@ function FinanceServices() {
                 <div class="form-group">
                   <input
                     type="email"
-                    class="form-view"
+                    className="form-view"
+                    name="email"
                     id="exampleInputEmail1"
                     aria-describedby="emailHelp"
                     placeholder="Email Address"
@@ -721,6 +579,7 @@ function FinanceServices() {
                   <div class="form-group">
                     <PhoneInput
                       className="form-view"
+                      name="phoneemail"
                       placeholder="Phone Number"
                       value={value}
                       onChange={setValue}
@@ -731,31 +590,31 @@ function FinanceServices() {
                   </div>
                 </Col>
                 <Col sm={12} md={4}>
-                  <Form.Select
+                  <input
+                    type="text"
                     className="form-view"
-                    aria-label="Default select example"
-                  >
-                    <option>Select State</option>
-                    <option value="1">One</option>
-                    <option value="2">Two</option>
-                    <option value="3">Three</option>
-                  </Form.Select>
+                    name="cityname"
+                    id="exampleInputtext"
+                    aria-describedby="textHelp"
+                    placeholder="City Name"
+                    required
+                  />
                 </Col>
                 <Col sm={12} md={4}>
-                  <Form.Select
+                <input
+                    type="text"
                     className="form-view"
-                    aria-label="Default select example"
-                  >
-                    <option>Select Product</option>
-                    <option value="1">One</option>
-                    <option value="2">Two</option>
-                    <option value="3">Three</option>
-                  </Form.Select>
+                    name="statename"
+                    id="exampleInputtext"
+                    aria-describedby="textHelp"
+                    placeholder="State Name"
+                    required
+                  />
                 </Col>
                 <Col sm={12} md={4} className="m-auto">
                   <input
                     type="submit"
-                    class="mt-btn btn btn-primary"
+                    className="mt-btn btn btn-primary"
                     value="Submit"
                   />
                 </Col>
